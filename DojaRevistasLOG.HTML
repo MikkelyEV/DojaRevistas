@@ -8,71 +8,36 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-        <style>
-            .dropbtn {
-              background-color: transparent;
-              color: white;
-              padding: 16px;
-              font-family: sans-serif;
-              font-size: 16px;
-              border: none;
-              cursor: pointer;
-            }
-            
-            .dropbtn:hover, .dropbtn:focus {
-              background: color #000;
-            }
-            
-            .dropdown {
-              position: relative;
-              display: inline-block;
-            }
-            
-            .dropdown-content {
-              display: none;
-              position: absolute;
-              background-color: #f1f1f1;
-              min-width: 160px;
-              overflow: auto;
-              box-shadow: 0px 8px 16px 0px burlywood;
-              z-index: 1;
-            }
-            
-            .dropdown-content a {
-              color: black;
-              padding: 12px 16px;
-              text-decoration: none;
-              display: block;
-            }
-            
-            .dropdown a:hover {background-color: burlywood;}
-            
-            .show {display: block;}
-            </style>
-            
-        <nav class="nav">
-          <button onclick="mobileMenu()" id="menuBars" type="button" class="toggle"><i id="menuIcon" class="fa-solid fa-bars animatedtoggle"></i></button>
-          <img alt="Pierce County Logo" class="logo" src="logo1.png">
-          <ul id="menuList" class="menu inactive">
-            <li class="item"><a href="DojaRevistas.HTML"><i class="fa-light fa-ticket"></i>Inicio</a></li>
-            <li class="item"><a href="index.html"><i class="fa-light fa-ferry"></i>Categorias</a></li>
-            <li class="item">
-                <div class="dropdown">
-                    <button onclick="myFunction()" class="dropbtn"><i class="fa-light fa-ferry"></i>MI CUENTA</button>
-                    <div id="myDropdown" class="dropdown-content">
-                      <a href="#home">Home</a>
-                      <a href="#about">About</a>
-                      <a href="#contact">Contact</a>
-                    </div>
-                  </div>
 
-
-            </li>
-          </ul>
-        </nav>
     </head>
-    <body>        
-        <section>            
+    <body>
+      
+        <section>
+          <input type="checkbox" id="ham-menu">
+<label for="ham-menu">
+  <div class="hide-des">
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+  </div>
+
+</label>
+<div class="full-page-green"></div>
+<div class="ham-menu">
+  <ul class="centre-text bold-text">
+    <li><a href="Shipping.html">Home</a></li>
+    <li>Categories</li>
+    <li>Services</li>
+    <li>Shop</li>
+    <li>Support</li>
+    <li>Contact us</li>
+
+  </ul>
+</div>
+
             <div class="circle"></div>
             
             <div class="content">
