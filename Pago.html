@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    
+    <meta charset="UTF-8">
+    <title> Doja Revistas</title>
+    <link rel="stylesheet" href="Estilo.css">
+    <link rel="stylesheet" href="EstiloPago.css">
+    <script src="https://kit.fontawesome.com/javascript.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    
+    <nav class="nav">
+      <button onclick="mobileMenu()" id="menuBars" type="button" class="toggle"><i id="menuIcon" class="fa-solid fa-bars animatedtoggle"></i></button>
+      <img alt="Pierce County Logo" class="logo" src="logo1.png">
+      <ul id="menuList" class="menu inactive">
+        <li class="item"><a href="DojaRevistas.HTML"><i class="fa-light fa-ticket"></i>Inicio</a></li>
+        <li class="item"><a href="index.html"><i class="fa-light fa-ferry"></i>Novedades</a></li>
+    
+      </ul>
+    </nav>
+
+</head>
+<body>
+    <div class="textBox">
+        <h2 align="center"><span>Proceso de envío</span> </h2>
+    </div>
+
+<div class="container">
+
+    <form action="">
+
+        <div class="row">
+
+            <div class="col">
+
+                <h3 class="title">Dirección de envío</h3>
+
+                <div class="inputBox">
+                    <span>Nombre completo :</span>
+                    <input type="text" placeholder="Carlos Rubio">
+                </div>
+                <div class="inputBox">
+                    <span>Correo :</span>
+                    <input type="email" placeholder="ejemplo@ejemplo.com">
+                </div>
+                <div class="inputBox">
+                    <span>Dirección :</span>
+                    <input type="text" placeholder="room - street - locality">
+                </div>
+                <div class="inputBox">
+                    <span>ciudad :</span>
+                    <input type="text" placeholder="Hermosillo">
+                </div>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>Estado :</span>
+                        <input type="text" placeholder="Sonora">
+                    </div>
+                    <div class="inputBox">
+                        <span>Código Postal :</span>
+                        <input type="text" placeholder="83200">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col">
+
+                <h3 class="title">Pago</h3>
+
+                <div class="inputBox">
+                    <span>Tarjetas aceptadas :</span>
+                    <img src="card_img.png" alt="">
+                </div>
+                <div class="inputBox">
+                    <span>Propietario de la tarjeta :</span>
+                    <input type="text" placeholder="Carlos Rubio">
+                </div>
+                <div class="inputBox">
+                    <span>Numero de tarjeta :</span>
+                    <input type="number" placeholder="1111-2222-3333-4444">
+                </div>
+                <div class="inputBox">
+                    <span>Fecha vencimiento :</span>
+                    <input type="text" placeholder="Enero">
+                </div>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>Año de vencimiento :</span>
+                        <input type="number" placeholder="2022">
+                    </div>
+                    <div class="inputBox">
+                        <span>CVV :</span>
+                        <input type="text" placeholder="1234">
+                    </div>
+                </div>
+
+            </div>
+    
+        </div>
+
+        <input type="submit" value="Enviar" class="submit-btn">
+
+    </form>
+
+</div>    
+    
+</body>
+</html>

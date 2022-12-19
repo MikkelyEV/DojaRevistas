@@ -1,0 +1,285 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+section
+{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:cornsilk;
+    
+}
+
+header
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+header .logo
+{
+    position: relative;
+    max-width: 80px;
+    
+}
+
+header ul 
+{
+    position: relative;
+    display: flex;
+}
+
+header ul li 
+{
+    list-style: none;
+}
+
+header ul li a 
+{
+    display: inline-block;
+    color: #333;
+    font-weight: 400;
+    margin-left: 40px;
+    text-decoration: none;
+}
+
+.content
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content .textBox
+{
+    position: relative;
+    max-width: 600px;
+}
+
+.content .textBox h2
+{
+    color: black;
+    font-size: 4em;
+    line-height: 1.4em;
+    font-weight: 500;
+}
+
+.content .textBox h2 span
+{
+    color:coral;
+    font-size: 1.2em;
+    font-weight: 900;
+
+}
+
+.content .textBox p
+{
+    color: black;
+}
+
+.content .textBox a
+{
+    color: black;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: burlywood;
+    color: black;
+    border-radius: 40px;
+    font-weight: 500;
+    initial-letter-align: 1px;
+    text-decoration: none;
+}
+
+.content .imgBox
+{
+    width: 330px;
+    display: flex;
+    justify-content: flex-start;
+    padding-right: 50px;
+    margin-top: 0px;
+}
+
+.content .imgBox img
+{
+    max-width: 360px;
+    max-height: 1000px;
+    
+}
+
+.thumb 
+{
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.thumb li
+{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.thumb li:hover
+{
+    transform: translateY(-15px);
+}
+
+.thumb li img
+{
+    max-width: 60px;
+}
+
+.circle 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: darksalmon;
+    clip-path: circle(600px at right 800px);
+}
+
+
+/*aaaa*/
+.logo {
+    height: 100%;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    background: #F0B9A6;
+    height: 5.5rem;
+    padding: 0 1em 0 1em;
+    /* Feel free to use a different font */
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.1em;
+    flex: 0.5;
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .nav ul {
+    display: flex;
+    list-style: none;
+    height: 100%;
+    justify-content: end;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .nav .item {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100%;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: white;
+    height: 100%;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px 0 25px;
+    transition: 0.1s;
+    white-space: nowrap;
+  }
+  
+  .nav a:hover {
+    background-color: rgb(236, 236, 137);
+    transition: 0.1s;
+  }
+  /* Icon padding */
+  .nav a i {
+    margin-right: 10px;
+  }
+  
+  /* Denotes the active menu item */
+  .active {
+    background-color:#F5D0C3;
+    transition: 0.1s;
+  }
+  
+  /* Mobile Menu Toggle */
+  .toggle {
+    display: none;
+    position: fixed;
+    top: 34px;
+    right: 30px;
+    color: white;
+    font-size: 1.1em;
+    background-color: none;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+  
+  /* Animation Easing */
+  .animatedtoggle {
+    transition: all 0.1s ease;
+  }
+  /* Rotate Menu item on toggle*/
+  .rotate {
+    transform: rotate(90deg);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /* Mobile menu breakpoint */
+  @media screen and (max-width: 950px) {
+    .menu {
+      display: block;
+    }
+    .nav {
+      display: block;
+      height: fit-content;
+    }
+  
+    .nav ul {
+      display: block;
+      margin-top: 1em;
+      padding-bottom: 1em;
+    }
+    .nav ul .item {
+      display: block;
+    }
+    .logo {
+      height: 88px;
+    }
+    .nav a {
+      height: 60px;
+      justify-content: start;
+    }
+    /* Display the toggle */
+    .toggle {
+      display: block;
+      background-color: transparent;
+      border: none;
+    }
+    /* Hide the primary nav */
+    ul.inactive {
+      display: none;
+    }
+  }
