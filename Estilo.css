@@ -327,22 +327,22 @@ p {
   font-family: "OpenSansCondensed-Light";
 }
 a {
-  font-size: 1.6rem;
-  line-height: 1.5em;
+  text-decoration: none;
+  font-size: 5rem;
   word-spacing: 0.5em;
   letter-spacing: 0.1em;
-  font-family: "OpenSansCondensed-Light";
+  
   display: inline;
   font-weight: bold;
   padding: 7px;
-  color: var(--icon-hover-bg);
+  color: var(--text-color);
 }
 a::after {
-  content: "\e806";
+  text-decoration: none;
   display: inline-block;
-  font-family: fontello;
+  font-family: sans-serif;
   padding: 5px;
-  font-size: 1.6rem;
+
   transform: rotate(-90deg);
 }
 .text {
@@ -350,7 +350,7 @@ a::after {
   line-height: 1.5em;
   word-spacing: 0.5em;
   letter-spacing: 0.1em;
-  font-family: "OpenSansCondensed-Bold", sans-serif;
+  font-family: "sans-serif", sans-serif;
 }
 .title {
   font-size: 3rem;
