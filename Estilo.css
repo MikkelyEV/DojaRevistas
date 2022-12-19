@@ -210,7 +210,7 @@ header ul li a
   }
   
   .nav a:hover {
-    background-color: rgb(236, 236, 137);
+    background-color: burlywood;
     transition: 0.1s;
   }
   /* Icon padding */
