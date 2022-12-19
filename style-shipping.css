@@ -1,9 +1,9 @@
 @import url("https://rsms.me/inter/inter.css");
 
 :root {
-  --color-gray: #fdfdfd;
-  --color-lighter-gray: #e3e5ed;
-  --color-light-gray: #f7f7fa;
+  --color-gray: #333232;
+  --color-lighter-gray: #898a8d;
+  --color-light-gray: #d6d6da;
 }
 
 *,
@@ -39,7 +39,7 @@ p {
 hr {
   height: 1px;
   width: 100%;
-  background-color: #ebc09d;
+  background-color: #000;
   border: 0;
   margin: 2rem 0;
 }
