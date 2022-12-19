@@ -11,18 +11,34 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         
-        <nav class="nav">
-          <button onclick="mobileMenu()" id="menuBars" type="button" class="toggle"><i id="menuIcon" class="fa-solid fa-bars animatedtoggle"></i></button>
-          <img alt="Pierce County Logo" class="logo" src="logo1.png">
-          <ul id="menuList" class="menu inactive">
-            <li class="item"><a href="DojaRevistas.HTML"><i class="fa-light fa-ticket"></i> Inicio</a></li>
-            <li class="item"><a href="index.html"><i class="fa-light fa-ferry"></i>Novedades</a></li>            
-            <li class="item"><a href=""><i class="fa-light fa-circle-question"></i>CARRITO</a></li>        
-          </ul>
-        </nav>
+        
     </head>
     <body >
           <section>
+            <input type="checkbox" id="ham-menu">
+            <label for="ham-menu">
+              <div class="hide-des">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+              </div>
+            
+            </label>
+            <div class="full-page-green"></div>
+            <div class="ham-menu">
+              <ul class="centre-text bold-text">
+                <li><a href="DojaRevistasLOG.HTML">Inicio</a></li>
+                <li><a href="index.html">Categorias</a></li>
+                <li><a href="Login.php">Mi Cuenta</a></li>
+                <li>Soporte</li>
+                <li>Contactanos</li>
+            
+              </ul>
+            </div>
+            
             <h2 align="center"> Lo mas top en revistas</h2>
             
             <!-- filtro -->
