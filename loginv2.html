@@ -23,14 +23,13 @@
         <div class="btn-wrap"><a class="btn btn-lg btn-register js-btn" data-target="register">REGISTRAR</a><a class="btn btn-lg btn-login js-btn" data-target="login">LOGIN</a></div>
       </div>
     </div>
-    <?php if (isset($_GET['error'])) { ?>
-      <p class="error"><?php echo $_GET['error']; ?></p>
-    <?php } ?>
+    
     <div class="card border-0 shadow card--register" id="register">
       <div class="card-body">
         <h2 class="card-title">Crear una Cuenta</h2>
         <p class="card-text">Ingresa tu información personal<br/>y comienza una aventura con nosotros</p>
-        <form action="signup.php">
+        
+        <form action="signup.php" method="POST">
           <div class="form-group">
             <input class="form-control" type="text" name="nombre" placeholder="Nombre" required="required"/>
           </div>
@@ -48,8 +47,9 @@
             <input class="form-control" type="text" name="rfc" placeholder="RFC (Opcional)" />
           </div>
 
-          <button type="submit" name="submit" class="btn btn-lg">REGISTRAR</button>
+          <button type="submit" name="btn_reg" class="btn btn-lg">REGISTRAR</button>
         </form>
+
       </div>
       <button class="btn btn-back js-btn" data-target="welcome"><i class="fas fa-angle-left"></i></button>
     </div>

@@ -39,11 +39,11 @@ if (isset($_POST['logemail']) && isset($_POST['logpassword'])) {
             	header("Location: index.html");
 		        exit();
             }else{
-				header("Location: loginv2.html?error=Incorect User name or password");
+				header("Location: loginv2.html?error=Incorect Email or password");
 		        exit();
 			}
 		}else{
-			header("Location: loginv2.html?error=Incorect User name or password");
+			header("Location: loginv2.html?error=Incorect Email or password");
 	        exit();
 		}
 	}

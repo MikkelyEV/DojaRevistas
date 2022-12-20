@@ -26,7 +26,7 @@
         <div class="btn-wrap"><a class="btn btn-lg btn-register js-btn" data-target="register">REGISTRAR</a><a class="btn btn-lg btn-login js-btn" data-target="login">LOGIN</a></div>
       </div>
     </div>
-    <form action="signup.php">
+    <form action="signup.php" method="Post">
     <div class="card border-0 shadow card--register" id="register">
       <div class="card-body">
         <h2 class="card-title">Crear una Cuenta</h2>

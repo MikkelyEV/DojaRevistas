@@ -1,5 +1,8 @@
 body{
     background: -webkit-angular-gradient(left, #ffffff, #c0c0c0);
+    width:100%;
+    position: absolute;
+    text-align: center;
 }
 .emp-profile{
     padding: 3%;
