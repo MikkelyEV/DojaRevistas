@@ -1,4 +1,8 @@
 
+          <?php if (isset($_GET['error'])) { ?>
+            <p class="error"><?php echo $_GET['error']; ?></p>
+          <?php } ?>
+          
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -53,7 +57,7 @@
         <h2 class="card-title">Bienvenido de Vuelta!</h2>
         <p>Para mantenerte conectado<br/>Inicia sesión con tus datos de usuario</p>
         
-        <form action="" method="Post">
+        <form action="login.php" method="Post">
           <div class="form-group">
             <input class="form-control" type="email" placeholder="Email" required="required"/>
           </div>
