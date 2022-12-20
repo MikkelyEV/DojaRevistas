@@ -17,11 +17,15 @@
   <div class="card-wrap">
     <div class="card border-0 shadow card--welcome is-show" id="welcome">
       <div class="card-body">
+
         <h2 class="card-title">BIENVENIDO</h2>
         <p>Bienvenido a la página de inicio de sesión</p>
         <div class="btn-wrap"><a class="btn btn-lg btn-register js-btn" data-target="register">REGISTRAR</a><a class="btn btn-lg btn-login js-btn" data-target="login">LOGIN</a></div>
       </div>
     </div>
+    <?php if (isset($_GET['error'])) { ?>
+      <p class="error"><?php echo $_GET['error']; ?></p>
+    <?php } ?>
     <div class="card border-0 shadow card--register" id="register">
       <div class="card-body">
         <h2 class="card-title">Crear una Cuenta</h2>
@@ -31,6 +35,7 @@
             <input class="form-control" type="text" name="nombre" placeholder="Nombre" required="required"/>
           </div>
           <div class="form-group">
+            
             <input class="form-control" type="email" name="correo_electronico" placeholder="Email" required="required"/>
           </div>
           <div class="form-group">
@@ -53,9 +58,9 @@
         <h2 class="card-title">Bienvenido de Vuelta!</h2>
         <p>Para mantenerte conectado<br/>Inicia sesión con tus datos de usuario</p>
         
-        <form action="login.php" method="Post">
+        <form action="Login.php" method="Post">
           <div class="form-group">
-            <input class="form-control"  type="email" name = "logemail" placeholder="Email" required="required"/>
+            <input class="form-control"  type="email" name = "logemail" placeholder="Email" />
           </div>
           <div class="form-group">
             <input class="form-control" type="password" name = "logpassword" placeholder="Contraseña" required="required"/>
@@ -69,7 +74,7 @@
   </div>
 </div>
 <!-- partial -->
-  <script  src="./script-loginv2.js"></script>
+ <script  src="./script-loginv2.js"></script>-->
 
 </body>
 </html>

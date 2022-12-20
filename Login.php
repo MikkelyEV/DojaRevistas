@@ -1,27 +1,54 @@
-<?php
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "";
-$dbname = "DOJADB";
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
-$alert= "";
-if (!$conn) {
-    die("no hay conexion:" . mysqli_connect_error());
+<?php 
+session_start(); 
+include "db_conn.php";
 
+if (isset($_POST['logemail']) && isset($_POST['logpassword'])) {
+
+	function validate($data){
+       $data = trim($data);
+	   $data = stripslashes($data);
+	   $data = htmlspecialchars($data);
+	   return $data;
+	}
+
+	$email = validate($_POST['logemail']);
+	$pass = validate($_POST['logpassword']);
+
+	if (empty($email)) {
+		header("Location: loginv2.html?error=Email is required");
+	    exit();
+	}else if(empty($pass)){
+        header("Location: loginv2.html?error=Password is required");
+	    exit();
+	}else{
+		// hashing the password
+
+         
+
+        
+		$sql = "SELECT * FROM CLIENTES WHERE correo_electronico='$email' AND password='$pass'";
+
+		$result = mysqli_query($conn, $sql);
+
+		if (mysqli_num_rows($result) === 1) {
+			$row = mysqli_fetch_assoc($result);
+            if ($row['correo_electronico'] === $email && $row['password'] === $pass) {
+            	$_SESSION['email'] = $row['email'];
+            	$_SESSION['nombre'] = $row['nombre'];
+            	$_SESSION['id'] = $row['id_cliente'];
+            	header("Location: index.html");
+		        exit();
+            }else{
+				header("Location: loginv2.html?error=Incorect User name or password");
+		        exit();
+			}
+		}else{
+			header("Location: loginv2.html?error=Incorect User name or password");
+	        exit();
+		}
+	}
+	
+}else{
+	header("Location: index.html");
+	exit();
 }
-$email = $_POST["logemail"];
-$pass = $_POST["logpassword"];
-
-$query = mysqli_query($conn, "SELECT * FROM CLIENTES WHERE correo_electronico='" . $email . "' and password='" . $passw . "'");
-$nr = mysqli_num_rows($query);
-if ($nr==1) {
-    echo "ingreso";
-    //header("Location:perfil.html");
-}elseif($nr==0){
-    header("Location:loginv2.html");
-}
-
-
-
-
-?>
