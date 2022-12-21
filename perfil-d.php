@@ -57,7 +57,7 @@
                </div>
                <div class="col-md-3">
                <form>
-                  <input type="submit" onclick="window.location.href='Shipping.php';" class="profile-edit-btn" name="submit" value="Añadir Nueva Dirección" align="right"/>
+                  <input type="submit" onclick="window.location.href='https://github.com/MikkelyEV/DojaRevistas/blob/2ae0c6293449ec87f016022af2262fe2ee535991/Shipping.php';" class="profile-edit-btn" name="submit" value="Añadir Nueva Dirección" align="right"/>
                   </form>
 
                </div>
@@ -80,11 +80,6 @@
                </div>
          </div>
       </section>
-      <script>
-      function myFunction() {
-            window.location.href="Shipping.php";
-         }
-      </script>
       
    </body>
 </html>
