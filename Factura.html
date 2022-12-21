@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Factura</title>
+  <link rel="stylesheet" href="./factestilo.css">
+  <link rel="stylesheet" href="./navbar.css">
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="header">
+  <div class="menu">
+    <a href="DojaRevistas.php" class="link">
+      <div class="title">Inicio</div>
+      <div class="bar"></div>
+    </a>
+    <a href="index.php" class="link">
+      <div class="title">Categorias</div>
+      <div class="bar"></div>
+    </a>
+    <a href="perfil.php" class="link">
+      <div class="title">Mi Cuenta</div>
+      <div class="bar"></div>
+    </a>
+  </div>
+</div>
+<body>
+  
+  <div id="invoiceholder">
+  <div id="invoice" class="effect2">
+    
+    <div id="invoice-top">      
+      <div class="title">
+        <h1>Factura #<span class="invoiceVal invoice_num">numfact</span></h1>
+        <p>Fecha: <span id="invoice_date">fecha</span>
+        </p>
+      </div><!--End Title-->
+    </div><!--End InvoiceTop-->
+
+
+    
+    <div id="invoice-mid">   
+      <div id="message">
+        <h2>Hola!</h2>
+        <p>Numero de factura #<span id="invoice_num">"numero"</span> perteneciente a:<span id="supplier_name"> "Usuario".</span><a href="javascript:void(0);"></a></p>
+      </div>
+       <div class="cta-group mobile-btn-group">
+            <a href="javascript:void(0);" class="btn-primary">Approve</a>
+            <a href="javascript:void(0);" class="btn-default">Reject</a>
+        </div> 
+        <div class="clearfix">
+            <div class="col-left">
+                <div class="clientlogo"><img src="https://cdn3.iconfinder.com/data/icons/daily-sales/512/Sale-card-address-512.png" alt="Sup" /></div>
+                <div class="clientinfo">
+                    <h2 id="supplier">"nombre"</h2>
+                    <p><span id="address">"Direccion"</span><br><span id="city">"Ciudad"</span><br><span id="country">"Pais"</span><br><span id="zip">"Codigo postal"</span><br><span id="tax_num">"Telefono"</span><br></p>
+                </div>
+            </div>
+            <div class="col-right">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td><span>Total</span><label id="invoice_total">"Total"</label></td>
+                            <td><span>Moneda</span><label id="currency">MXP</label></td>
+                        </tr>                        
+                        <tr><td colspan="2"><span>Nota</span>#<label id="note">None</label></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>       
+    </div><!--End Invoice Mid-->
+    
+    <div id="invoice-bot">
+      
+      <div id="table">
+        <table class="table-main">
+          <thead>    
+              <tr class="tabletitle">
+                <th>Producto</th>
+                <th>Descripcion</th>
+                <th>Cantidad</th>
+                <th>precio</th>                
+                <th>Total</th>
+              </tr>
+          </thead>
+          <tr class="list-item">
+            <td data-label="Type" class="tableitem">"Producto"</td>
+            <td data-label="Description" class="tableitem">"Descripción"</td>
+            <td data-label="Quantity" class="tableitem">"Cantidad</td>
+            <td data-label="Unit Price" class="tableitem">"Precio"</td>            
+            <td data-label="Total" class="tableitem">"Total"</td>
+          </tr>
+         <tr class="list-item">
+            <td data-label="Type" class="tableitem">"Producto"</td>
+            <td data-label="Description" class="tableitem">"Descripcion"</td>
+            <td data-label="Quantity" class="tableitem">"Cantidad"</td>
+            <td data-label="Unit Price" class="tableitem">"Precio"</td>
+            <td data-label="Total" class="tableitem">"Total"</td>
+          </tr>
+            <tr class="list-item total-row">
+                <th colspan="9" class="tableitem">Total</th>
+                <td data-label="Grand Total" class="tableitem">"Total"</td>
+            </tr>
+        </table>
+      </div><!--End Table-->
+      <div class="cta-group">
+        <a href="javascript:void(0);" class="btn-primary">Terminar</a>        
+    </div> 
+      
+    </div><!--End InvoiceBot-->
+  </div><!--End Invoice-->
+</div><!-- End Invoice Holder-->
+  
+  
+
+</body>
+<!-- partial -->
+  
+</body>
+</html>
