@@ -78,16 +78,18 @@
       <th scope="col">Pedido realizado</th>
       <th scope="col">Total</th>
       <th scope="col">Enviar a</th>
+      <th scope="col">Productos</th>
     </tr>
   </thead>
   <tbody>
   <?php
-   $sql = "SELECT id, firstname, lastname FROM MyGuests";
-   $result = $conn->query($sql);
+   $sql = "SELECT p.id_pedido,p.total, p.id_direccion,GROUP_CONCAT(o.id_producto)  FROM pedidos as p INNER JOIN orden as o ON p.id_pedido = o.id_pedido;
+";
+   $result = $conn->mysqliquery($sql);
    
    if ($result->num_rows > 0) {
      // output data of each row
-     while($row = $result->fetch_assoc()) {
+     while($row = $result->mysqli_fetch_assoc()) {
        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
      }
    } else {
