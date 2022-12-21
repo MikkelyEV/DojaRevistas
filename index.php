@@ -28,7 +28,6 @@
             <div class="ham-menu">
               <ul class="centre-text bold-text">
                 <li><a href="index.phpTML">Inicio</a></li>
-                <li><a href="categorias.php">Categorias</a></li>
                 <li><a href="loginv2.html">Mi Cuenta</a></li>
                 <li>Soporte</li>
                 <li>Contactanos</li>
