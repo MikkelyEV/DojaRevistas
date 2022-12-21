@@ -17,8 +17,8 @@ $nr = mysqli_num_rows($query);
 if ($nr==0) {
     echo $nr;
     echo "ingreso";
-    header("Location:index.html");
-    //header("Location:perfil.html");
+    header("Location:index.php");
+    //header("Location:perfil.php");
 }elseif($nr==1){
     header("Location:loginv2.html");
 }

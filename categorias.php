@@ -26,15 +26,15 @@
     <body>
         <div class="header">
         <div class="menu">
-          <a href="DojaRevistas.HTML" class="link">
+          <a href="index.php" class="link">
             <div class="title">Inicio</div>
             <div class="bar"></div>
           </a>
-          <a href="index.html" class="link">
+          <a href="index.php" class="link">
             <div class="title">Categorias</div>
             <div class="bar"></div>
           </a>
-          <a href="perfil.html" class="link">
+          <a href="perfil.php" class="link">
             <div class="title">Mi Cuenta</div>
             <div class="bar"></div>
           </a>

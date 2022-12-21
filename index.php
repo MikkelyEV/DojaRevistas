@@ -8,35 +8,33 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-
+        
     </head>
-    <body>
-      
+    <body>        
         <section>
-          <input type="checkbox" id="ham-menu">
-<label for="ham-menu">
-  <div class="hide-des">
-    <span class="menu-line"></span>
-    <span class="menu-line"></span>
-    <span class="menu-line"></span>
-    <span class="menu-line"></span>
-    <span class="menu-line"></span>
-    <span class="menu-line"></span>
-  </div>
-
-</label>
-<div class="full-page-green"></div>
-<div class="ham-menu">
-  <ul class="centre-text bold-text">
-    <li><a href="DojaRevistasLOG.HTML">Inicio</a></li>
-    <li><a href="categorias.php">Categorias</a></li>
-    <li><a href="loginv2.html">Mi Cuenta</a></li>
-    <li>Soporte</li>
-    <li>Contactanos</li>
-
-  </ul>
-</div>
-
+            <input type="checkbox" id="ham-menu">
+            <label for="ham-menu">
+              <div class="hide-des">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+              </div>
+            
+            </label>
+            <div class="full-page-green"></div>
+            <div class="ham-menu">
+              <ul class="centre-text bold-text">
+                <li><a href="index.phpTML">Inicio</a></li>
+                <li><a href="categorias.php">Categorias</a></li>
+                <li><a href="loginv2.html">Mi Cuenta</a></li>
+                <li>Soporte</li>
+                <li>Contactanos</li>
+            
+              </ul>
+            </div>
             <div class="circle"></div>
             
             <div class="content">
@@ -56,27 +54,6 @@
                 <li><img src="thumb4.png" onclick="imgSlider('imgBox4.png');changeCircleColor('#C6DA52')"></li>
             </ul>
         </section>
-        <script>
-            /* When the user clicks on the button, 
-            toggle between hiding and showing the dropdown content */
-            function myFunction() {
-              document.getElementById("myDropdown").classList.toggle("show");
-            }
-            
-            // Close the dropdown if the user clicks outside of it
-            window.onclick = function(event) {
-              if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                  var openDropdown = dropdowns[i];
-                  if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                  }
-                }
-              }
-            }
-            </script>
         <script type="text/javascript">
             function imgSlider(anything){
                 document.querySelector('.revistas').src = anything;

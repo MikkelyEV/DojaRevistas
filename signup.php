@@ -22,7 +22,7 @@ include "db_conn.php";
 				$_SESSION['email'] = $row['email'];
             	$_SESSION['nombre'] = $row['nombre'];
             	$_SESSION['id'] = $row['id_cliente'];
-           	 header("Location:perfil.html");
+           	 header("Location:perfil.php");
 	         exit();
            }else {
 			

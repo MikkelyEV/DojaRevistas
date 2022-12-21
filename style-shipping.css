@@ -13,19 +13,19 @@
 }
 
 html {
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  box-sizing: border-box;
+  font-family: "Inter", sans-serif !important;
+  font-size: 14px !important;
+  box-sizing: border-box !important;
 }
 
 @supports (font-variation-settings: normal) {
   html {
-    font-family: "Inter var", sans-serif;
+    font-family: "Inter var", sans-serif !important;
   }
 }
 
 body {
-  margin: 0;
+  margin: 0 !important;
 }
 
 h1 {

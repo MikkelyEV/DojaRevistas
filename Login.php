@@ -33,10 +33,12 @@ if (isset($_POST['logemail']) && isset($_POST['logpassword'])) {
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
             if ($row['correo_electronico'] === $email && $row['password'] === $pass) {
-            	$_SESSION['email'] = $row['email'];
+            	$_SESSION['email'] = $row['correo_electronico'];
             	$_SESSION['nombre'] = $row['nombre'];
             	$_SESSION['id'] = $row['id_cliente'];
-            	header("Location: index.html");
+				$_SESSION['telefono'] = $row['telefono'];
+				$_SESSION['rfc'] = $row['rfc'];
+            	header("Location: categorias.php");
 		        exit();
             }else{
 				header("Location: loginv2.html?error=Incorect Email or password");
@@ -49,6 +51,6 @@ if (isset($_POST['logemail']) && isset($_POST['logpassword'])) {
 	}
 	
 }else{
-	header("Location: index.html");
+	header("Location: logiv2.html");
 	exit();
 }

@@ -3,10 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>Direcciones</title>
-  <link rel="stylesheet" href="./style-shipping.css">
+  <link rel="stylesheet" href="style-shipping.css">
+  <link rel="stylesheet" href="navbar.css">
+    </head>
 
-</head>
 <body>
+        <div class="header">
+        <div class="menu">
+          <a href="index.php" class="link">
+            <div class="title">Inicio</div>
+            <div class="bar"></div>
+          </a>
+          <a href="index.php" class="link">
+            <div class="title">Categorias</div>
+            <div class="bar"></div>
+          </a>
+          <a href="perfil.php" class="link">
+            <div class="title">Mi Cuenta</div>
+            <div class="bar"></div>
+          </a>
+        </div>
 <!-- partial:index.partial.html -->
 <div class="container">
   <h1>Direcciones</h1>
