@@ -56,10 +56,9 @@
                   </div>
                </div>
                <div class="col-md-3">
-               <form>
-                  <input type="submit" onclick="window.location.href='https://github.com/MikkelyEV/DojaRevistas/blob/2ae0c6293449ec87f016022af2262fe2ee535991/Shipping.php';" class="profile-edit-btn" name="submit" value="Añadir Nueva Dirección" align="right"/>
+                  <form>
+                  <button class="button-4" role="button" type="submit" formaction="Shipping.php">Añadir Nueva Dirección</button>
                   </form>
-
                </div>
             </div>
             <div class="row">
