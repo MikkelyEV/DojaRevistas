@@ -56,7 +56,7 @@
                                         <tbody></tbody>
                                     </table>
 
-                                    <a href="Pago.html" id="pagar" class="button u-full-width">Pagar</a>
+                                    <a href="Pago.php" id="pagar" class="button u-full-width">Pagar</a>
                                     <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
 
                                     <script href="script.js">
