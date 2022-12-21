@@ -23,12 +23,13 @@
             <div class="bar"></div>
           </a>
         </div>
+</div>
 <!-- partial:index.partial.html -->
 <div class="container">
   <h1 align="left">Direcciones</h1>
   <p align="left">Porfavor ingresa tus datos de entrega.</p>
-  <hr />
   <div class="form">
+  <form action="regdir.php" method="POST">
   <div class="fields fields--2">
     <label class="field" align="left">
       <span class="field__label" for="calle">Calle</span>
@@ -107,9 +108,12 @@
   </div>
   </div>
   <hr>
-  <button class="button">Continuar</button>
+  <button class="button" type="submit">Guardar</button>
   <br>
-  <button class="button">Cancelar</button>
+</form>
+<form>
+  <button class="button" formaction="perfil-d.php">Cancelar</button>
+  </form>
 </div>
 <!-- partial -->
   

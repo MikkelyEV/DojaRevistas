@@ -155,3 +155,24 @@ body{
 .button-4:-webkit-details-marker {
   display: none;
 }
+
+.container{
+    max-width: 450px;
+  }
+  
+  input[type=text],
+  input[type=text]:focus{
+    color: blue;
+    border: none;
+    background-color: rgba(216, 54, 54, 0.2);
+  }
+  
+  li.list-group-item{
+    background-color: rgb(255, 255, 255);
+    color: black;
+  }
+  
+  .delete{
+    cursor: pointer;
+  }
+  

@@ -26,7 +26,6 @@ html {
 
 body {
   margin: 0 !important;
-  background:linear-gradient(to right, #ffdde1, rgb(238, 236, 235), #a7bfe8, #6190e8);
   background-size:500% 500%;
   transition:background 3s ease;
   background-position:50% 50%

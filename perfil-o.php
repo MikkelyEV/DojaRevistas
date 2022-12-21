@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+include "db_conn.php";
+?>
 <!DOCTYPE HTML>
 <html lang="en">
    <head>
@@ -56,9 +59,6 @@
                      </ul>
                   </div>
                </div>
-               <div class="col-md-3">
-                  <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Editar Cuenta" align="right"/>
-               </div>
             </div>
             <div class="row">
             <div class="col-md-2">
@@ -83,38 +83,36 @@
   </thead>
   <tbody>
   <?php
-   $sql = "SELECT p.id_pedido,p.total, p.id_direccion,GROUP_CONCAT(o.id_producto)  FROM pedidos as p INNER JOIN orden as o ON p.id_pedido = o.id_pedido;
-";
-   $result = $conn->mysqliquery($sql);
+ 
+   $sql = "SELECT p.id_pedido,p.fecha_entr,p.total, 
+   CONCAT(d.calle,Char(32),d.numero_ext) as direccion,GROUP_CONCAT(a.nombre_producto) 
+   as producto  FROM pedidos as p 
+   INNER JOIN orden as o ON p.id_pedido = o.id_pedido 
+   INNER JOIN producto as a ON o.id_producto = a.id_producto 
+   INNER JOIN direccion as d ON p.id_direccion=d.id_direccion  
+   WHERE p.id_cliente=".$_SESSION["id"];
    
-   if ($result->num_rows > 0) {
+   $result = mysqli_query($conn, $sql);
+   if (mysqli_num_rows($result) > 0) {
      // output data of each row
-     while($row = $result->mysqli_fetch_assoc()) {
-       echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+     while( $row = mysqli_fetch_assoc($result)) {
+      
+      echo "<tr >";
+      echo "<td>".$row["id_pedido"]."</td>";
+      echo "<td>".$row["fecha_entr"]."</td>";
+      echo "<td>".$row["total"]."</td>";
+      echo "<td>".$row["direccion"]."</td>";
+      echo "<td>".$row["producto"]."</td>";
+      echo "</tr>";
+  
      }
    } else {
      echo "0 results";
    }
   ?>
  
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+  
+   
   </tbody>
 </table>
                     
