@@ -17,6 +17,10 @@ include "../db_conn.php";
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" rel="stylesheet" id="bootstrap-css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet" id="bootstrap-css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" id="bootstrap-css">
 
     <!--<title>Admin Dashboard Panel</title>--> 
 </head>
@@ -76,8 +80,22 @@ include "../db_conn.php";
                 </div>
 
             </div>
-
-        </div>
+            <div class="row justify-content-md-center">
+                        <div class="form-group col-sm-2 flex-column d-flex"> <label class="form-control-label px-3" align="center">ID Proveedor</label> <input type="number" id="idProveedor" name="idProveedor" value="32" readonly style="text-align:center;" onblur="validate(1)"> </div>
+            </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nombre del Producto<span class="text-danger"> *</span></label> <input type="text" id="nombre" name="nombre" placeholder="Ingrese nombre del producto" onblur="validate(1)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Importe<span class="text-danger"> *</span></label> <span><input type="number" id="importe" name="importe" placeholder="Ingrese el importe" onblur="validate(2)"> </span></div>
+                    </div>
+                    <br>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Descripcion<span class="text-danger"> *</span></label> <input type="text" id="descripcion" name="descripcion" placeholder="Ingrese una breve descripción" onblur="validate(3)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Cantidad<span class="text-danger"> *</span></label> <input type="number" id="cantidadUnidad" name="cantidadUnidad" placeholder="Ingrese la cantidad" onblur="validate(4)"> </div>
+                    </div>
+                    <br>
+                    <br>
+                    <button class="button-9" type="submit" name="submit">Guardar</button>
+                    </div>
     </section>
 
     <script>
