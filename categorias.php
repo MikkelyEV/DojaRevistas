@@ -54,6 +54,8 @@
                             <div id="carrito">
 
                                 <table id="lista-carrito" class="u-full-width">
+                                 
+                                 <form action="Pago.php" method="POST">
                                     <thead>
                                         <tr>
                                             <th>Imagen</th>
@@ -65,11 +67,14 @@
                                     </thead>
                                     <tbody></tbody>
                                 </table>
-                                <a href="Pago.php" id="pagar" class="button u-full-width">Pagar</a>
+                                
                                 <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
                                 <script href="script.js">
-                  document.write('Total de la compra' + total1);
-               </script>
+                                 
+                                 document.write('Total de la compra' + total1);
+                                 </script>
+                                 <button class="button u-full-width" type="submit">Pagar</button>
+</form>
                         </li>
                     </ul>
                 </div>
@@ -99,22 +104,23 @@
                               echo "<tr>";
                            }
                         echo "<td>";
-                        echo "<div class='card' id='".$row['categoria'] . "'>";
+                        echo "<div class='card'>";
                            echo "<img src='../image/" . $row['imagen'] . "' class='imagen-curso u-full-width' style='float: left;width:  300px;height: 400px; object-fit: cover;'>";
                            echo "<div class='info-card'>";
                            echo "<h4 style='font-size: 35px;'>" . $row['nombre_producto'] . "</h4>";
                            echo "<p style='font-size: 15px;'>" . $row['descripcion'] . "</p>";
-                           echo "<img src='https://i.ibb.co/x2TQGkZ/estrellas.png' alt='estrellas>";
+                           echo "<img src='https://i.ibb.co/x2TQGkZ/estrellas.png' alt='estrellas'>";
                            echo "<p class='precio'><span class='u-pull-right'>$". $row['precio'] . "</span> </p>";
                            echo "<a href='#' class='u-full-width button-primary button input agregar-carrito' data-id=" . $row['id_producto'] . ">Agregar Al Carrito</a>";
+                           echo "</div>";
                            echo "</td>";
                   echo "<br>";
                            if ($i%4==3){
                            echo "</tr>";
                         } 
                         $i++;
-                        echo "</div>";
                     }
+                    echo "</table>";
             }else{
                    echo "0 resultados";
                    }
