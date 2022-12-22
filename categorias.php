@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+   
+  <meta charset="UTF-8">
+  <title>CodePen - Carrito de Compras Vanilla js</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
 <?php
    session_start();
    include "db_conn.php";
@@ -36,44 +46,40 @@
                <div class="bar"></div>
             </a>
          </div>
-         <li class="submenu">
-            <img src="https://i.ibb.co/QM3Nqk4/cart.png" alt="cart" border="0" id="img-carrito">
-            <div id="carrito">
-               <table id="lista-carrito" class="u-full-width">
-                  <thead>
-                     <tr>
-                        <th>Imagen</th>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th></th>
-                     </tr>
-                  </thead>
-                  <tbody></tbody>
-               </table>
-               <a href="Pago.php" id="pagar" class="button u-full-width">Pagar</a>
-               <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
-               <script href="script.js">
-                  document.write('Total de la compra' + total1);
-               </script>
-            </div>
-         </li>
-      </div>
-
-      <div id="hero">
          <div class="container">
             <div class="row">
-               <div class="six columns">
-                  <div class="contenido-hero">
-                     <h1>La revista que quieras la encuentras aquí</h1>
-                     <form action="#" id="busqueda" method="post" class="formulario">
-                        <input type="submit" id="submit-buscador" class="submit-buscador">
-                     </form>
-                  </div>
-               </div>
+                <div class="two columns u-pull-right">
+                    <ul>
+                        <li class="submenu">
+                            <img src="https://i.ibb.co/QM3Nqk4/cart.png" alt="cart" border="0" id="img-carrito">
+                            <div id="carrito">
+
+                                <table id="lista-carrito" class="u-full-width">
+                                    <thead>
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <a href="Pago.php" id="pagar" class="button u-full-width">Pagar</a>
+                                <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
+                                <script href="script.js">
+                  document.write('Total de la compra' + total1);
+               </script>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-         </div>
-      </div>
+        </div>
+        </div>
+
+      
 
       <div id="lista-cursos" class="container">
        <h1 id="encabezado" style='font-size: 35px;' class="encabezado"><b>Lo mas TOP en revistas</h1>
@@ -89,19 +95,27 @@
                $sql = "SELECT id_producto,nombre_producto,descripcion,categoria,precio,imagen FROM PRODUCTO";
                $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row["id_producto"];
-                        echo "<div class='four columns'>";
+                        echo "<table>";
                         echo "<div class='card'>";
-                        echo "<img src='../image/" . $row['imagen'] . "' class='imagen-curso u-full-width'>";
-                        echo "<div class='info-card'>";
-                        echo "<h4 style='font-size: 35px;'>" . $row['nombre_producto'] . "</h4>";
-                        echo "<p style='font-size: 15px;'>" . $row['descripcion'] . "</p>";
-                        echo "<img src='https://i.ibb.co/x2TQGkZ/estrellas.png' alt='estrellas'>";
-                        echo "<span style='font-size: 20px;' class='u-pull-right'>$" . $row['precio'] . "</span>";
-                        echo "<a href='#' class='u-full-width button-primary button input agregar-carrito' data-id=" . $row['id_producto'] . ">Agregar Al Carrito</a>";
-                        echo "</div>";
-                        echo "</div>";
+                        $i = 0;
+                        while ($row = mysqli_fetch_assoc($result)) {
+                           $id = $row["id_producto"];
+                           if ($i%3==0){
+                              echo "<tr>";
+                           }
+                        echo "<td>";
+                           echo "<img src='../image/" . $row['imagen'] . "' class='imagen-curso u-full-width' style='float: left;width:  300px;height: 400px; object-fit: cover;'>";
+                           echo "<div class='info-card'>";
+                           echo "<h4 style='font-size: 35px;'>" . $row['nombre_producto'] . "</h4>";
+                           echo "<p style='font-size: 15px;'>" . $row['descripcion'] . "</p>";
+                           echo "<img src='https://i.ibb.co/x2TQGkZ/estrellas.png' alt='estrellas'>";
+                           echo "<span style='font-size: 20px;' class='u-pull-right'>$" . $row['precio'] . "</span>";
+                           echo "<a href='#' class='u-full-width button-primary button input agregar-carrito' data-id=" . $row['id_producto'] . ">Agregar Al Carrito</a>";
+                           echo "</td>";
+                           if ($i%3==2){
+                           echo "</tr>";
+                        } 
+                        $i++;
                         echo "</div>";
                     }
             }else{
@@ -122,6 +136,12 @@
          });
       </script>
       <script src="js/app.js"></script>
-      <script src="./script.js"></script>
-   </body>
+
+</body>
+
+</html>
+<!-- partial -->
+  <script  src="script.js"></script>
+
+</body>
 </html>
