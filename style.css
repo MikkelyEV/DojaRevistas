@@ -1,5 +1,5 @@
 html {
-    font-size: 62.5%;
+    font-size: 62.5% !important;
 }
 body {
     background-color: #f5f3f3
@@ -11,7 +11,7 @@ h2 {
     font-size: 3rem;
 }
 h4 {
-    font-size: 16px;
+    font-size: 20px !important;
     font-weight: 700;
 }
 header {
@@ -160,14 +160,14 @@ ul {
 .card h4 {
     margin-bottom: 5px;
 }
-.info-card .precio {
+.info-card .precio { 
     text-decoration: line-through;
-    font-size: 18px;
+    font-size: 30px !important;
     margin-top: 10px;
 }
 .info-card .precio span {
     font-weight: 700;
-    font-size: 22px;
+    font-size: 30px !important;
 }
 
 
