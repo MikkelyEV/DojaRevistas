@@ -23,8 +23,8 @@ if (!empty($_POST["calle"])) {
             echo " <div class='inputBox'>
             <span>Código Postal :</span>
             <input type='text' value=".$row['zip'] ." class= 'form-control form-control-sm'>
-            </div>
-       ";}
+            </div>";
+       }
     }
 }
 ?>
