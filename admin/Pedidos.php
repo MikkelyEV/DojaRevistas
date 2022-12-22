@@ -78,25 +78,25 @@ include "../db_conn.php";
 
             </div>
             <li class='list-group-item d-flex justify-content-between align-items-center'>
-            <span>Nombre de Producto</span>  <span> Descripción</span> <span> Categoría </span>  <span> Precio </span> <span> Frecuencia </span> <span> Stock </span> <span> Portada </span> <span> </span>  
+            <span>ID Pedido</span>  <span>ID Orden</span> <span>Nombre Producto</span>  <span>Nombre Cliente</span> <span>Dirección de Entrega</span> <span>Total</span> <span>Fecha de Entrega</span> 
             </li>
             <?php
-            $sql = "SELECT id_pedido,id_cliente,total,dir_entrega,fecha_entr FROM PEDIDOS";
-            SELECT p.id_pedido,p.id_cliente,p.total,p.dir_entrega,p.fecha_entr FROM pedidos as p 
-   INNER JOIN cliente as c ON c.id_cliente = o.id_pedido 
-   INNER JOIN producto as a ON o.id_producto = a.id_producto 
-   INNER JOIN direccion as d ON p.id_direccion=d.id_direccion  
+            $sql = "SELECT p.id_pedido,pr.nombre_producto,o.id_orden,c.nombre,p.dir_entrega,p.total,p.fecha_entr FROM pedidos as p 
+                    INNER JOIN clientes as c ON c.id_cliente = p.id_cliente
+                    INNER JOIN orden as o ON p.id_pedido = o.id_pedido
+                    INNER JOIN producto as pr ON pr.id_producto=o.id_producto
+                    WHERE pr.id_producto=o.id_producto";
+
+
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                // output data of each row
                while( $row = mysqli_fetch_assoc($result)) {
             
-               $id = $row["id_producto"];
+               $id = $row["id_pedido"];
                echo "<li class='list-group-item d-flex justify-content-between align-items-center'>";
-               echo "<span>".$row["nombre_producto"]."</span> <span>".$row["descripcion"]."</span> <span>".$row["categoria"].
-               "</span> <span>".$row["precio"]."</span> <span>".$row["frecuencia"]."</span> <span>".$row["Stock"]."</span> <span> <img src='../image/".$row['imagen']."' width='60' height='80'/></span>";
-                  echo "<a href='delprod.php?id=".$row['id_producto']."'>Delete</a>";
-               
+               echo "<span>".$row["id_pedido"]."</span> <span>".$row["id_orden"]."</span> <span>".$row["nombre_producto"].
+               "</span> <span>".$row["nombre"]."</span> <span>".$row["dir_entrega"]."</span> <span>".$row["total"]."</span> <span>".$row["fecha_entr"];
                echo "</li>";
                }
             } else {

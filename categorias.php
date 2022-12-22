@@ -1,11 +1,10 @@
+<?php
+session_start();
+include "db_conn.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
-    <meta charset="UTF-8">
     <title>Categorias</title>
-    
-    <!-- partial:index.partial.html -->
-    <!DOCTYPE html>
-    <html lang="es">
 
     <head>
         <meta charset="UTF-8">
@@ -64,16 +63,9 @@
                                     </script>
 
 
-
                                 </div>
                             </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-
+        </div>
         <div id="hero">
             <div class="container">
                 <div class="row">
@@ -101,141 +93,31 @@
                 <button class="btn" onclick="filterSelection('GQ')"> GQ</button>
                 <button class="btn" onclick="filterSelection('Rolling Stone')"> Rolling Stone</button>
             </div>
-
             <div class="row">
-
-                <div class="four columns vogue">
-                    <div class="card">
-                        <img src="cat1.jpeg" alt="curso1" class="imagen-curso u-full-width">
-                        <div class="info-card">
-                            <h4>Vogue Rosalia</h4>
-                            <p>Revista Vogue invierno 2022</p>
-                            <img src="https://i.ibb.co/x2TQGkZ/estrellas.png" alt="estrellas">
-                            <p class="precio">$300 <span class="u-pull-right ">240</span></p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito"
-                                data-id="1">Agregar Al Carrito</a>
-                        </div>
-                    </div>
-                    <!--.card-->
-                </div>
-                <div class="four columns">
-                    <div class="card">
-                        <img src="cat2.jpg" alt="curso2" class="imagen-curso u-full-width">
-                        <div class="info-card">
-                            <h4>ALLONE Bad Buny</h4>
-                            <p>Las mejores tendencias del 2022</p>
-                            <img src="https://i.ibb.co/x2TQGkZ/estrellas.png" alt="estrellas" border="0">
-                            <p class="precio">$200 <span class="u-pull-right ">185</span></p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito"
-                                data-id="2">Agregar Al Carrito</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="four columns">
-                    <div class="card">
-                        <img src="cat3.jpg" alt="curso3" class="imagen-curso u-full-width">
-                        <div class="info-card">
-                            <h4>ELLE Billie Eilish</h4>
-                            <p>La joven estrella nos cuenta como es llevar la fama</p>
-                            <img src="https://i.ibb.co/x2TQGkZ/estrellas.png" alt="estrellas" border="0">
-                            <p class="precio">$200 <span class="u-pull-right ">199</span></p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito"
-                                data-id="3">Agregar Al Carrito</a>
-                        </div>
-                    </div>
-                    <!--.card-->
-                </div>
-
-            </div>
-            <!--.row-->
-            <div class="row">
-                <div class="four columns">
-                    <div class="card">
-                        <img src="cat4.jpg" alt="curso4" class="imagen-curso u-full-width">
-                        <div class="info-card">
-                            <h4>Elle Shakira</h4>
-                            <p>Nos cuenta como ha sido su separación</p>
-                            <img src="https://i.ibb.co/x2TQGkZ/estrellas.png" alt="estrellas" border="0">
-                            <p class="precio">$200 <span class="u-pull-right ">187</span></p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito"
-                                data-id="4">Agregar Al Carrito</a>
-                        </div>
-                    </div>
-                    <!--.card-->
-                </div>
-                <div class="four columns">
-                    <div class="card">
-                        <img src="cat5.jpg" alt="curso5" border="0" class="imagen-curso u-full-width">
-                        <div class="info-card">
-                            <h4>Vogue Rihana</h4>
-                            <p>La revista mas iconica de la moda</p>
-                            <img src="https://i.ibb.co/x2TQGkZ/estrellas.png" alt="estrellas" border="0">
-                            <p class="precio">$300 <span class="u-pull-right ">250</span></p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito"
-                                data-id="5">Agregar Al Carrito</a>
-                        </div>
-                    </div>
-                    <!--.card-->
-                </div>
-
-                <div class="four columns">
-                    <div class="card">
-                        <img src="cat6.jpg" alt="curso5" border="0" class="imagen-curso u-full-width">
-                        <div class="info-card">
-                            <h4>Vogue Harry Styles</h4>
-                            <p>La revista mas iconica de la moda</p>
-                            <img src="https://i.ibb.co/x2TQGkZ/estrellas.png" alt="estrellas" border="0">
-                            <p class="precio">$300 <span class="u-pull-right ">280</span></p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito"
-                                data-id="6">Agregar Al Carrito</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="four columns">
-                        <div class="card">
-                            <img src="cat7.png" alt="curso2" border="0" class="imagen-curso u-full-width">
-                            <div class="info-card">
-                                <h4>TÚ Kenia Os</h4>
-                                <p>La revista mas famosa de México</p>
-                                <img src="https://i.ibb.co/x2TQGkZ/estrellas.png" alt="estrellas" border="0">
-                                <p class="precio">$200 <span class="u-pull-right ">158</span></p>
-                                <a href="#" class="u-full-width button-primary button input agregar-carrito"
-                                    data-id="7">Agregar Al Carrito</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="four columns">
-                        <div class="card">
-                            <img src="cat8.jpg" alt="curso5" border="0" class="imagen-curso u-full-width">
-                            <div class="info-card">
-                                <h4>GQ The Weekend</h4>
-                                <p>La revista mas Fashion de la moda</p>
-                                <img src="https://i.ibb.co/x2TQGkZ/estrellas.png" alt="estrellas" border="0">
-                                <p class="precio">$300 <span class="u-pull-right ">280</span></p>
-                                <a href="#" class="u-full-width button-primary button input agregar-carrito"
-                                    data-id="8">Agregar Al Carrito</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="four columns">
-                        <div class="card">
-                            <img src="cat9.jpg" alt="curso5" border="0" class="imagen-curso u-full-width">
-                            <div class="info-card">
-                                <h4>Rolling Stone Lorde</h4>
-                                <p>La revista de musica #1 en el mundo</p>
-                                <img src="https://i.ibb.co/x2TQGkZ/estrellas.png" alt="estrellas" border="0">
-                                <p class="precio">$300 <span class="u-pull-right ">290</span></p>
-                                <a href="#" class="u-full-width button-primary button input agregar-carrito"
-                                    data-id="9">Agregar Al Carrito</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <?php
+            $sql = "SELECT id_producto,nombre_producto,descripcion,categoria,precio,imagen FROM PRODUCTO";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+               while( $row = mysqli_fetch_assoc($result)) {
+               $id = $row["id_producto"];
+                    echo "<div class='four columns'>";
+                        echo "<div class='card'>";
+                            echo "<img src='../image/".$row['imagen']."' alt='curso".$row['id_producto']."' class='imagen-curso u-full-width'>";
+                                echo "<div class='info-card'>";
+                                    echo "<h4>".$row['nombre_producto']."</h4>";
+                                        echo "<p>" . $row['descripcion'] . "</p>";
+                                            echo "<img src='https://i.ibb.co/x2TQGkZ/estrellas.png' alt='estrellas'>";
+                                                echo "<span class='u-pull-right'>$".$row['precio']."</span>";
+                                                    echo "<a href='#' class='u-full-width button-primary button input agregar-carrito' data-id=".$row['id_producto'].">Agregar Al Carrito</a>";
+                                echo "</div>";
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</div>";
+                }
+                } else {
+                echo "0 resultados";
+                }
+            ?>
             </div>
         </div>
         <script>
@@ -250,13 +132,6 @@
             });
         </script>
         <script src="js/app.js"></script>
-
+        <script src="./script.js"></script>
     </body>
-
-    </html>
-    <!-- partial -->
-    <script src="./script.js"></script>
-
-</body>
-
 </html>
