@@ -164,8 +164,8 @@ include "db_conn.php";
                   <hr class="my-4">
 
                   <div class="pt-5">
-                    <h6 class="mb-0"><a href="#!" class="text-body"><i
-                          class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                    <h6 class="mb-0"><a href="categorias.php" class="text-body"><i
+                          class="fas fa-long-arrow-alt-left me-2" ></i>Back to shop</a></h6>
                   </div>
                 </div>
               </div>
@@ -183,10 +183,8 @@ include "db_conn.php";
 
                   <div class="mb-4 pb-2">
                     <select class="select">
-                      <option value="1">Standard-Delivery- €5.00</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                      <option value="4">Four</option>
+                      <option value="1">Envío estandar</option>
+                      <option value="2">Envío premium</option>
                     </select>
                   </div>
 
@@ -219,7 +217,7 @@ include "db_conn.php";
                   </div>
 
                   <button type="button" class="btn btn-dark btn-block btn-lg"
-                    data-mdb-ripple-color="dark">Register</button>
+                    data-mdb-ripple-color="dark" onclick="location.href='tarjeta.php'">Register</button>
 
                 </div>
               </div>
