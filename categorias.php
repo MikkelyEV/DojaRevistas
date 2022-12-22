@@ -80,11 +80,11 @@
       <div id="lista-cursos" class="container">
        <h1 id="encabezado" style='font-size: 35px;' class="encabezado"><b>Lo mas TOP en revistas</h1>
          <div id="myBtnContainer">
-            <button class="btn active" onclick="filterSelection('Todo')"> Show all</button>
-            <button class="btn" onclick="filterSelection('Vogue')"> Vogue</button>
-            <button class="btn" onclick="filterSelection('ELLE')"> ELLE</button>
-            <button class="btn" onclick="filterSelection('GQ')"> GQ</button>
-            <button class="btn" onclick="filterSelection('Rolling Stone')"> Rolling Stone</button>
+            <button class="btn active" onclick="filterSelection('Todos')"> Todos</button>
+            <button class="btn" onclick="filterSelection('Moda')"> Moda</button>
+            <button class="btn" onclick="filterSelection('Musica')"> Musica</button>
+            <button class="btn" onclick="filterSelection('Finanzas')"> Finanzas</button>
+            <button class="btn" onclick="filterSelection('Entretenimiento')"> Entretenimiento</button>
          </div>
          <div class="row">
             <?php
@@ -99,12 +99,12 @@
                               echo "<tr>";
                            }
                         echo "<td>";
-                        echo "<div class='card'>";
+                        echo "<div class='card' id='".$row['categoria'] . "'>";
                            echo "<img src='../image/" . $row['imagen'] . "' class='imagen-curso u-full-width' style='float: left;width:  300px;height: 400px; object-fit: cover;'>";
                            echo "<div class='info-card'>";
                            echo "<h4 style='font-size: 35px;'>" . $row['nombre_producto'] . "</h4>";
                            echo "<p style='font-size: 15px;'>" . $row['descripcion'] . "</p>";
-                           echo "<img src='https://i.ibb.co/x2TQGkZ/estrellas.png' alt='estrellas'>";
+                           echo "<img src='https://i.ibb.co/x2TQGkZ/estrellas.png' alt='estrellas>";
                            echo "<p class='precio'><span class='u-pull-right'>$". $row['precio'] . "</span> </p>";
                            echo "<a href='#' class='u-full-width button-primary button input agregar-carrito' data-id=" . $row['id_producto'] . ">Agregar Al Carrito</a>";
                            echo "</td>";
