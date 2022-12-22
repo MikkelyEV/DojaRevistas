@@ -49,8 +49,8 @@ function eliminarCurso(e) {
 // Lee el contenido del HTML al que le dimos click y extrae la información del curso
 function leerDatosCurso(curso) {
     // console.log(curso);
-
     // Crear un objeto con el contenido del curso actual
+    
     const infoCurso = {
         imagen: curso.querySelector('img').src,
         titulo: curso.querySelector('h4').textContent,
@@ -58,6 +58,7 @@ function leerDatosCurso(curso) {
         id: curso.querySelector('a').getAttribute('data-id'),
         cantidad: 1
     }
+    infoCurso.precio= infoCurso.precio.replace('$','');
 
     // Revisa si un elemento ya existe en el carrito
     const existe = articulosCarrito.some(curso => curso.id === infoCurso.id);
@@ -78,10 +79,6 @@ function leerDatosCurso(curso) {
     }
 
 
-
-
-    console.log(articulosCarrito);
-
     carritoHTML();
 }
 
@@ -95,7 +92,8 @@ function carritoHTML() {
 
     // Recorre el carrito y genera el HTML
     articulosCarrito.forEach(curso => {
-        const { imagen, titulo, precio, cantidad, id} = curso;
+
+        const { imagen, titulo, precio,cantidad, id} = curso;
         var precio1=cantidad*precio;
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -113,6 +111,7 @@ function carritoHTML() {
         // Agrega el HTML del carrito en el tbody
         contenedorCarrito.appendChild(row);
     });
+    
 
 
 }

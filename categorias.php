@@ -3,7 +3,7 @@
 <head>
    
   <meta charset="UTF-8">
-  <title>CodePen - Carrito de Compras Vanilla js</title>
+  <title>Categorias</title>
   <link rel="stylesheet" href="./style.css">
 
 </head>
@@ -46,9 +46,8 @@
                <div class="bar"></div>
             </a>
          </div>
-         <div class="container">
-            <div class="row">
                 <div class="two columns u-pull-right">
+                  <br>
                     <ul>
                         <li class="submenu">
                             <img src="https://i.ibb.co/QM3Nqk4/cart.png" alt="cart" border="0" id="img-carrito">
@@ -71,13 +70,10 @@
                                 <script href="script.js">
                   document.write('Total de la compra' + total1);
                </script>
-                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
-        </div>
 
       
 
@@ -96,23 +92,24 @@
                $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                         echo "<table>";
-                        echo "<div class='card'>";
                         $i = 0;
                         while ($row = mysqli_fetch_assoc($result)) {
                            $id = $row["id_producto"];
-                           if ($i%3==0){
+                           if ($i%5==5){
                               echo "<tr>";
                            }
                         echo "<td>";
+                        echo "<div class='card'>";
                            echo "<img src='../image/" . $row['imagen'] . "' class='imagen-curso u-full-width' style='float: left;width:  300px;height: 400px; object-fit: cover;'>";
                            echo "<div class='info-card'>";
                            echo "<h4 style='font-size: 35px;'>" . $row['nombre_producto'] . "</h4>";
                            echo "<p style='font-size: 15px;'>" . $row['descripcion'] . "</p>";
                            echo "<img src='https://i.ibb.co/x2TQGkZ/estrellas.png' alt='estrellas'>";
-                           echo "<span style='font-size: 20px;' class='u-pull-right'>$" . $row['precio'] . "</span>";
+                           echo "<p class='precio'><span class='u-pull-right'>$". $row['precio'] . "</span> </p>";
                            echo "<a href='#' class='u-full-width button-primary button input agregar-carrito' data-id=" . $row['id_producto'] . ">Agregar Al Carrito</a>";
                            echo "</td>";
-                           if ($i%3==2){
+                  echo "<br>";
+                           if ($i%4==3){
                            echo "</tr>";
                         } 
                         $i++;
@@ -141,7 +138,7 @@
 
 </html>
 <!-- partial -->
-  <script  src="script.js"></script>
+  <script  src="./script.js"></script>
 
 </body>
 </html>
