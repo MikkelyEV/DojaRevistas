@@ -33,13 +33,24 @@ if (isset($_POST['logemail']) && isset($_POST['logpassword'])) {
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
             if ($row['correo_electronico'] === $email && $row['password'] === $pass) {
-            	$_SESSION['email'] = $row['correo_electronico'];
-            	$_SESSION['nombre'] = $row['nombre'];
-            	$_SESSION['id'] = $row['id_cliente'];
-				$_SESSION['telefono'] = $row['telefono'];
-				$_SESSION['rfc'] = $row['rfc'];
-            	header("Location: categorias.php");
-		        exit();
+				if($row['correo_electronico'] === "admin@gmail.com" && $row['password']==="admin"){
+					$_SESSION['email'] = $row['correo_electronico'];
+            		$_SESSION['nombre'] = $row['nombre'];
+            		$_SESSION['id'] = $row['id_cliente'];
+					$_SESSION['telefono'] = $row['telefono'];
+					$_SESSION['rfc'] = $row['rfc'];
+            		header("Location: admin/productos.php");
+		        	exit();
+				}else{
+					$_SESSION['email'] = $row['correo_electronico'];
+            		$_SESSION['nombre'] = $row['nombre'];
+            		$_SESSION['id'] = $row['id_cliente'];
+					$_SESSION['telefono'] = $row['telefono'];
+					$_SESSION['rfc'] = $row['rfc'];
+            		header("Location: categorias.php");
+		        	exit();
+				}
+            	
             }else{
 				header("Location: loginv2.html?error=Incorect Email or password");
 		        exit();

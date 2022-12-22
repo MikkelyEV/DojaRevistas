@@ -14,13 +14,18 @@ $pass = $_POST["logpassword"];
 
 $query = mysqli_query($conn, "SELECT * FROM CLIENTES WHERE correo_electronico='" . $email . "' and password='" . $passw . "'");
 $nr = mysqli_num_rows($query);
-if ($nr==0) {
-    echo $nr;
-    echo "ingreso";
-    header("Location:index.php");
-    //header("Location:perfil.php");
-}elseif($nr==1){
-    header("Location:loginv2.html");
+if ($email=="admin@gmail.com"){
+    header("Location:../productos.php");
+}else{
+    if ($nr==0) {
+        echo $nr;
+        echo "ingreso";
+        header("Location:index.php");
+        //header("Location:perfil.php");
+    }elseif($nr==1){
+        header("Location:loginv2.html");
+    }
+    
 }
 
 
