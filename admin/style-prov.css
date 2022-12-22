@@ -477,8 +477,8 @@ nav.close ~ .dashboard .top{
   margin: 0px 0 0;
   outline: none;
   overflow: hidden;
-  padding: 0 25px;
-  position: absolute;
+  padding: 0 15px;
+  position: center;
   top: 50%;
   text-align: center;
   text-transform: none;

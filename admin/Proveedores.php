@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../db_conn.php";
+include "db_conn.php";
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +21,8 @@ include "../db_conn.php";
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" rel="stylesheet" id="bootstrap-css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet" id="bootstrap-css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" id="bootstrap-css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
 
     <!--<title>Admin Dashboard Panel</title>--> 
 </head>
@@ -83,19 +85,36 @@ include "../db_conn.php";
                         <div class="form-group col-sm-2 flex-column d-flex"> <label class="form-control-label px-3" align="center">ID Proveedor</label> <input type="number" class="form-control input-lg" id="idProveedor" name="idProveedor" value="32" readonly style="text-align:center;" onblur="validate(1)"> </div>
             </div>
                     <div class="row justify-content-between text-center">
-                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Nombre del Producto<span class="text-danger"> *</span></label> <input class="form-control input-lg" type="text" id="nombre" name="nombre" placeholder="Ingrese nombre del producto" onblur="validate(2)"> </div>
-                        <div class="form-group col-sm-4 flex-column d-flex row"> <label class="form-control-label px-3">Importe<span class="text-danger"> *</span></label> <span><input class="form-control input-lg" type="number" id="importe" name="importe" placeholder="Ingrese el importe" onblur="validate(3)"> </span></div>
+                        <div class="form-group col-sm-3 flex-column d-flex" style="margin-left:auto;margin-right:1%;display:block;margin-top:1%;margin-bottom:0%"> <label class="form-control-label px-3">Nombre del Producto
+                        <form>
+                        <select class='form-select' aria-label='Default select example' aria-placeholder="Selecciona un producto" id="product">;
+                
+                    <?php
+                    $query = "SELECT nombre_producto FROM PRODUCTO";
+                    $result = mysqli_query($conn, $query);
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($rows=mysqli_fetch_assoc($result)){
+                            echo "<option value=".$rows['nombre_producto']."'>".$rows['nombre_producto']."</option>";
+                        }
+                    } else {
+                    echo "<option value=0Resultados></option>";
+                    }
+                    echo "</select>";
+                    
+                    ?>
+
                     </div>
+                    <div class="form-group col-sm-3 flex-column d-flex" style="margin-left:1%;margin-right:auto;display:block;margin-top:1%;margin-bottom:0%"> <label class="form-control-label px-3">Cantidad<span class="text-danger"> *</span></label> <input class="form-control input-lg" type="number" id="cantidadUnidad" name="cantidadUnidad" placeholder="Ingrese la cantidad" onblur="validate(5)"> </div>
+                    </div>
+                    <br>
+                    <section id="importe">
+				    </section>	
+                    
                     <br>
                     <div class="row justify-content-between text-center">
-                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Descripcion<span class="text-danger"> *</span></label> <input class="form-control input-lg" type="text" id="descripcion" name="descripcion" placeholder="Ingrese una breve descripción" onblur="validate(4)"> </div>
-                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Cantidad<span class="text-danger"> *</span></label> <input class="form-control input-lg" type="number" id="cantidadUnidad" name="cantidadUnidad" placeholder="Ingrese la cantidad" onblur="validate(5)"> </div>
+                        <div class="form-group col-sm-2 flex-column d-flex" style="margin-left:auto;margin-right:auto;display:block;margin-top:1%;margin-bottom:0%"> <label class="form-control-label px-3">Fecha de Alta<span class="text-danger"> *</span></label> <input class="form-control input-lg" type="date" id="fecha" name="fecha" onblur="validate(6)"> </div>
                     </div>
-                    <br>
-                    <div class="row justify-content-between text-center">
-                        <div class="form-group col-sm-2 flex-column d-flex"> <label class="form-control-label px-3">Fecha de Alta<span class="text-danger"> *</span></label> <input class="form-control input-lg" type="date" id="fecha" name="fecha" onblur="validate(6)"> </div>
-                    </div>
-                    <br>
+                    <br><br><br>
                     <div class="wrapper">
                     <button class="button-9" type="submit" name="submit">Guardar</button>
 </div>
@@ -136,5 +155,24 @@ sidebarToggle.addEventListener("click", () => {
     }
 })
     </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+	$(document).ready(function(){
+		$('#product').change(function(){
+            var e = document.getElementById("product");
+			var nombre_producto = e.options[e.selectedIndex].text;
+			$.ajax({
+				url: "ajaxfile.php",		
+				method: "POST",				
+				data: {nombre_producto:nombre_producto},	
+				success:function(data)		
+				{
+					$('#importe').html(data);
+				}
+			});
+		});
+	});
+</script> 
 </body>
 </html>

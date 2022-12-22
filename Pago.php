@@ -66,28 +66,15 @@ include "db_conn.php";
                 
                 <?php
                 
-                
                 $query = "Select calle,numero_ext,colonia,ciudad,zip,estado  FROM DIRECCION WHERE id_cliente=".$_SESSION["id"];
-                
-                
                 $result = mysqli_query($conn, $query);
-                
-                
                 if (mysqli_num_rows($result) > 0) {
                     while ($rows=mysqli_fetch_assoc($result)){
                         echo '<option value="'.$rows['calle'].'">'.$rows['calle']." ".$rows['numero_ext']." ".$rows['colonia'].'</option>';
-                        
                     }
                 } else {
                     echo "<option value=0Resultados></option>";
-                    
               }
-              
-                
-
-                
-                
-                
                 /*<option value="2">Two</option>
                 <option value="3">Three</option>*/
                 echo "</select>";
@@ -109,11 +96,6 @@ include "db_conn.php";
         </div>"
                 ?>
                 
-               
-
-               
-                   
-
             </div>
 
             <div class="col">
