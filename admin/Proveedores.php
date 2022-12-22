@@ -12,7 +12,7 @@ include "../db_conn.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-prov.css">
      
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -78,24 +78,28 @@ include "../db_conn.php";
                     <i class="uil uil-files-landscapes"></i>
                     <span class="text">Proveedores</span>
                 </div>
-
             </div>
             <div class="row justify-content-md-center">
-                        <div class="form-group col-sm-2 flex-column d-flex"> <label class="form-control-label px-3" align="center">ID Proveedor</label> <input type="number" id="idProveedor" name="idProveedor" value="32" readonly style="text-align:center;" onblur="validate(1)"> </div>
+                        <div class="form-group col-sm-2 flex-column d-flex"> <label class="form-control-label px-3" align="center">ID Proveedor</label> <input type="number" class="form-control input-lg" id="idProveedor" name="idProveedor" value="32" readonly style="text-align:center;" onblur="validate(1)"> </div>
             </div>
-                    <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nombre del Producto<span class="text-danger"> *</span></label> <input type="text" id="nombre" name="nombre" placeholder="Ingrese nombre del producto" onblur="validate(1)"> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Importe<span class="text-danger"> *</span></label> <span><input type="number" id="importe" name="importe" placeholder="Ingrese el importe" onblur="validate(2)"> </span></div>
+                    <div class="row justify-content-between text-center">
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Nombre del Producto<span class="text-danger"> *</span></label> <input class="form-control input-lg" type="text" id="nombre" name="nombre" placeholder="Ingrese nombre del producto" onblur="validate(2)"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex row"> <label class="form-control-label px-3">Importe<span class="text-danger"> *</span></label> <span><input class="form-control input-lg" type="number" id="importe" name="importe" placeholder="Ingrese el importe" onblur="validate(3)"> </span></div>
                     </div>
                     <br>
-                    <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Descripcion<span class="text-danger"> *</span></label> <input type="text" id="descripcion" name="descripcion" placeholder="Ingrese una breve descripción" onblur="validate(3)"> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Cantidad<span class="text-danger"> *</span></label> <input type="number" id="cantidadUnidad" name="cantidadUnidad" placeholder="Ingrese la cantidad" onblur="validate(4)"> </div>
+                    <div class="row justify-content-between text-center">
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Descripcion<span class="text-danger"> *</span></label> <input class="form-control input-lg" type="text" id="descripcion" name="descripcion" placeholder="Ingrese una breve descripción" onblur="validate(4)"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Cantidad<span class="text-danger"> *</span></label> <input class="form-control input-lg" type="number" id="cantidadUnidad" name="cantidadUnidad" placeholder="Ingrese la cantidad" onblur="validate(5)"> </div>
                     </div>
                     <br>
+                    <div class="row justify-content-between text-center">
+                        <div class="form-group col-sm-2 flex-column d-flex"> <label class="form-control-label px-3">Fecha de Alta<span class="text-danger"> *</span></label> <input class="form-control input-lg" type="date" id="fecha" name="fecha" onblur="validate(6)"> </div>
+                    </div>
                     <br>
+                    <div class="wrapper">
                     <button class="button-9" type="submit" name="submit">Guardar</button>
-                    </div>
+</div>
+            </div>
     </section>
 
     <script>
