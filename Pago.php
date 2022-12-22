@@ -19,6 +19,7 @@ include "db_conn.php";
     <link rel="stylesheet" href="navbar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -189,15 +190,27 @@ include "db_conn.php";
                     </select>
                   </div>
 
-                  <h5 class="text-uppercase mb-3">Give code</h5>
+                  <span>Direccion :</span>
+                <select class='form-select' aria-label='Default select example' aria-placeholder="Selecciona tu direccion" id="direccion">;
+                
+                <?php
+                $query = "Select calle,numero_ext,colonia,ciudad,zip,estado  FROM DIRECCION WHERE id_cliente=".$_SESSION["id"];
+                $result = mysqli_query($conn, $query);
 
-                  <div class="mb-5">
-                    <div class="form-outline">
-                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Examplea2">Enter your code</label>
-                    </div>
-                  </div>
-
+                if (mysqli_num_rows($result) > 0) {
+                    while ($rows=mysqli_fetch_assoc($result)){
+                        echo '<option value="'.$rows['calle'].'">'.$rows['calle']." ".$rows['numero_ext']." ".$rows['colonia'].'</option>';
+                        
+                    }
+                } else {
+                    echo "<option value=0Resultados></option>";
+                    
+              }
+                 
+                ?>
+                </select>
+                
+           
                   <hr class="my-4">
 
                   <div class="d-flex justify-content-between mb-5">
@@ -223,5 +236,22 @@ include "db_conn.php";
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#direccion').change(function(){
+            var e = document.getElementById("direccion");
+			var calle  = e.options[e.selectedIndex].text;
+			$.ajax({
+				url: "ajaxfile pago.php",		
+				method: "POST",				
+				data: {calle:calle},	
+				success:function(data)		
+				{
+					
+				}
+			});
+		});
+	});
+</script> 
 </body>
 </html>
