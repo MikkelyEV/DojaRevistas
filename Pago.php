@@ -18,6 +18,7 @@ include "db_conn.php";
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="navbar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css">
 </head>
 
 <body>
@@ -61,19 +62,21 @@ include "db_conn.php";
                     <input type="email" placeholder="ejemplo@ejemplo.com">
                 </div>
                 <span>Direccion :</span>
+                <select class='form-select' aria-label='Default select example' aria-placeholder="Selecciona tu direccion">;
+                
                 <?php
                 
                 
-                $query = "Select calle,numero_ext,colonia  FROM DIRECCION WHERE id_cliente=".$_SESSION["id"];
+                $query = "Select calle,numero_ext,colonia,ciudad,zip,estado  FROM DIRECCION WHERE id_cliente=".$_SESSION["id"];
                 
                 
                 $result = mysqli_query($conn, $query);
                 
-                echo "<select class='form-select' aria-label='Default select example'>";
+                
                 if (mysqli_num_rows($result) > 0) {
                     while ($rows=mysqli_fetch_assoc($result)){
-                        echo "<option value=\"{$rows['calle']}\">{$row['calle']}</option>";
-                        echo "<option value=''>One</option>";
+                        echo '<option value="'.$rows['calle'].'">'.$rows['calle']." ".$rows['numero_ext']." ".$rows['colonia'].'</option>';
+                        
                     }
                 } else {
                     echo "<option value=0Resultados></option>";
@@ -82,28 +85,34 @@ include "db_conn.php";
               
                 
 
-                echo "</select>";
                 
-                /*<option value="1">One</option>
-                <option value="2">Two</option>
+                
+                
+                /*<option value="2">Two</option>
                 <option value="3">Three</option>*/
-                
-                ?>
-                <div class="inputBox">
-                    <span>ciudad :</span>
-                    <input type="text" placeholder="Hermosillo">
-                </div>
+                echo "</select>";
+                echo "<div class='inputBox'>
+                <span>ciudad :</span>
+                <input type='text' placeholder='Hermosillo'>
+                </div>";
 
-                <div class="flex">
-                    <div class="inputBox">
-                        <span>Estado :</span>
-                        <input type="text" placeholder="Sonora">
-                    </div>
-                    <div class="inputBox">
-                        <span>Código Postal :</span>
-                        <input type="text" placeholder="83200">
-                    </div>
-                </div>
+                echo " <div class='flex'>
+                <div class='inputBox'>
+                    <span>Estado :</span>
+                    <input type='text' placeholder='Sonora'>
+                </div>";
+
+                echo" <div class='inputBox'>
+                <span>Código Postal :</span>
+                <input type='text' placeholder='83200'>
+            </div>
+        </div>"
+                ?>
+                
+               
+
+               
+                   
 
             </div>
 
@@ -148,6 +157,9 @@ include "db_conn.php";
     </form>
 
 </div>    
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>
