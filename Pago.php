@@ -1,3 +1,7 @@
+<?php
+session_start();
+include "db_conn.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,12 +60,35 @@
                     <span>Correo :</span>
                     <input type="email" placeholder="ejemplo@ejemplo.com">
                 </div>
-                <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
+                <span>Direccion :</span>
+                <?php
+                
+                
+                $query = "Select calle,numero_ext,colonia  FROM DIRECCION WHERE id_cliente=".$_SESSION["id"];
+                
+                
+                $result = mysqli_query($conn, $query);
+                
+                echo "<select class='form-select' aria-label='Default select example'>";
+                if (mysqli_num_rows($result) > 0) {
+                    while ($rows=mysqli_fetch_assoc($result)){
+                        echo "<option value=\"{$rows['calle']}\">{$row['calle']}</option>";
+                        echo "<option value=''>One</option>";
+                    }
+                } else {
+                    echo "<option value=0Resultados></option>";
+                    
+              }
+              
+                
+
+                echo "</select>";
+                
+                /*<option value="1">One</option>
                 <option value="2">Two</option>
-                <option value="3">Three</option>
-                </select>
+                <option value="3">Three</option>*/
+                
+                ?>
                 <div class="inputBox">
                     <span>ciudad :</span>
                     <input type="text" placeholder="Hermosillo">
