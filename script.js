@@ -104,7 +104,13 @@ function carritoHTML() {
             <td>${precio1}</td>
             <td>${cantidad}</td>            
             <td>
-                <a href="#" class="borrar-curso" data-id="${id}" > X </a>
+            <input type="hidden" name="id" value="${id}">
+            <input type="hidden" name="nombre" value='"${titulo}"'>
+            <input type="hidden" name="precio" value='"${precio}"'>
+            <input type="hidden" name="cantidad" value='"${cantidad}"'>
+            <input type="hidden" name="subtotal" value='"${precio1}"'>
+            <input type="hidden" name="imagen" value='"${imagen}"'>
+ 
             </td>
         `;
 
