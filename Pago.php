@@ -213,9 +213,41 @@ $id = implode(",", $_POST['id']);
                     <h5 class="text-uppercase">Total price</h5>
                     <h5>€ 137.00</h5>
                   </div>
+                  <h3 class="title">Pago</h3>
+
+<div class="inputBox">
+    <span>Tarjetas aceptadas :</span>
+    <img src="card_img.png" alt="" class= 'form-control form-control-sm'>
+</div>
+<div class="inputBox">
+    <span>Propietario de la tarjeta :</span>
+    <input type="text" placeholder="Carlos Rubio" class= 'form-control form-control-sm'>
+</div>
+<div class="inputBox">
+    <span>Numero de tarjeta :</span>
+    <input type="text" placeholder="1111-2222-3333-4444" class= 'form-control form-control-sm' >
+</div>
+<div class="inputBox">
+    <span>Fecha vencimiento :</span>
+    <input type="text" placeholder="Enero" class= 'form-control form-control-sm'>
+</div>
+
+<div class="flex">
+    <div class="div class='mb-2">
+        <span>Año de vencimiento :</span>
+        <input type="text" placeholder="2022" class= 'form-control form-control-sm'>
+    </div>
+    <div class="inputBox">
+        <span>CVV :</span>
+        <input type="text" placeholder="1234" class= 'form-control form-control-sm'>
+    </div>
+</div>
+
+</div>
+
 
                   <button type="button" class="btn btn-dark btn-block btn-lg"
-                    data-mdb-ripple-color="dark" onclick="location.href='tarjeta.php'">Register</button>
+                    data-mdb-ripple-color="dark" onclick="location.href='tarjeta.php'" style="float:right;">Register</button>
 
                 </div>
               </div>

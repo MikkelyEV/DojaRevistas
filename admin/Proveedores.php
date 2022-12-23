@@ -81,13 +81,14 @@ include "db_conn.php";
                     <span class="text">Proveedores</span>
                 </div>
             </div>
+            <form action="" method="get" >
             <div class="row justify-content-md-center">
                         <div class="form-group col-sm-2 flex-column d-flex"> <label class="form-control-label px-3" align="center">ID Proveedor</label> <input type="number" class="form-control input-lg" id="idProveedor" name="idProveedor" value="32" readonly style="text-align:center;" onblur="validate(1)"> </div>
             </div>
                     <div class="row justify-content-between text-center">
                         <div class="form-group col-sm-3 flex-column d-flex" style="margin-left:auto;margin-right:1%;display:block;margin-top:1%;margin-bottom:0%"> <label class="form-control-label px-3">Nombre del Producto
                         <form>
-                        <select class='form-select' aria-label='Default select example' aria-placeholder="Selecciona un producto" id="product">;
+                        <select class='form-select' aria-label='Default select example' aria-placeholder="Selecciona un producto" id="product" name="producto">;
                 
                     <?php
                     $query = "SELECT nombre_producto FROM PRODUCTO";
@@ -100,6 +101,7 @@ include "db_conn.php";
                     echo "<option value=0Resultados></option>";
                     }
                     echo "</select>";
+                    
                     
                     ?>
 
@@ -117,7 +119,47 @@ include "db_conn.php";
                     <br><br><br>
                     <div class="wrapper">
                     <button class="button-9" type="submit" name="submit">Guardar</button>
-</div>
+                    </form> 
+                    </div>
+                    <?php
+                   
+                        //API URL
+                        $url = 'https://proveedores-api-production.up.railway.app/api/producto';
+
+                        //create a new cURL resource
+                        $ch = curl_init($url);
+
+                        //setup request to send json via POST
+                        $data = array(
+                            'idProducto' => '1',
+                            'nombre' => 'Billboard invierno',
+                            'importe'  => '10',
+                            'cantidadUnidad'  => '100',
+                            'total'  => '1000',
+                            'fecha'  => '2022-12-14T00:00:00.000Z',
+                            'idProveedor'  => '32',
+                            'descripcion'  => 'Revista billboard invierno 2022'
+                        );
+                        $info = json_encode(array("32" => $data));
+                        
+                        //attach encoded JSON string to the POST fields
+                        curl_setopt($ch, CURLOPT_POSTFIELDS, $info);
+
+                        //set the content type to application/json
+                        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+
+                        //return response instead of outputting
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                        //execute the POST request
+                        $result = curl_exec($ch);
+
+                        //close cURL resource
+                        curl_close($ch);
+
+
+                    ?>  
+
             </div>
     </section>
 

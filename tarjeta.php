@@ -82,12 +82,6 @@ include "db_conn.php";
                     echo "<option value=0Resultados></option>";
                     
               }
-              
-                
-
-                
-                
-                
                 /*<option value="2">Two</option>
                 <option value="3">Three</option>*/
                 echo "</select>";
@@ -108,12 +102,6 @@ include "db_conn.php";
             </div>
         </div>"
                 ?>
-                
-               
-
-               
-                   
-
             </div>
 
             <div class="col">
@@ -130,7 +118,7 @@ include "db_conn.php";
                 </div>
                 <div class="inputBox">
                     <span>Numero de tarjeta :</span>
-                    <input type="number" placeholder="1111-2222-3333-4444">
+                    <input type="text" placeholder="1111-2222-3333-4444">
                 </div>
                 <div class="inputBox">
                     <span>Fecha vencimiento :</span>
@@ -140,7 +128,7 @@ include "db_conn.php";
                 <div class="flex">
                     <div class="inputBox">
                         <span>Año de vencimiento :</span>
-                        <input type="number" placeholder="2022">
+                        <input type="text" placeholder="2022">
                     </div>
                     <div class="inputBox">
                         <span>CVV :</span>
