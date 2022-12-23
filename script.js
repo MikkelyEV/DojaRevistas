@@ -101,14 +101,8 @@ function carritoHTML() {
             <td>${titulo}</td>
             <td>${precio1}</td>
             <td>${cantidad}</td>            
-            <td> <input type="hidden" name='id[]' id="id" value="${id}"/></td>
-            <td><input type="hidden" name='nombre[]' id="nombre" value='"${titulo}"'/></td>
-            <td><input type="hidden" name='precio[]' id="precio" value='"${precio}"'/></td>
-            <td><input type="hidden" name='cantidad[]' id="cantidad" value='"${cantidad}"'/></td>
-            <td><input type="hidden" name='subtotal[]' id="subtotal" value='"${precio1}"'/></td>
-            <td><input type="hidden" name='imagen[]' id="imagen" value='"${imagen}"'/></td>
         `;
-
+      
         // Agrega el HTML del carrito en el tbody
         contenedorCarrito.appendChild(row);
     });
