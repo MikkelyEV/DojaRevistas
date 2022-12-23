@@ -97,21 +97,16 @@ function carritoHTML() {
         var precio1=cantidad*precio;
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>
-                <img src="${imagen}" width="100">
-            </td>
+            <td><img src="${imagen}" width="100"></td>
             <td>${titulo}</td>
             <td>${precio1}</td>
             <td>${cantidad}</td>            
-            <td>
-            <input type="hidden" name="id" value="${id}">
-            <input type="hidden" name="nombre" value='"${titulo}"'>
-            <input type="hidden" name="precio" value='"${precio}"'>
-            <input type="hidden" name="cantidad" value='"${cantidad}"'>
-            <input type="hidden" name="subtotal" value='"${precio1}"'>
-            <input type="hidden" name="imagen" value='"${imagen}"'>
- 
-            </td>
+            <td> <input type="hidden" name='id[]' id="id" value="${id}"/></td>
+            <td><input type="hidden" name='nombre[]' id="nombre" value='"${titulo}"'/></td>
+            <td><input type="hidden" name='precio[]' id="precio" value='"${precio}"'/></td>
+            <td><input type="hidden" name='cantidad[]' id="cantidad" value='"${cantidad}"'/></td>
+            <td><input type="hidden" name='subtotal[]' id="subtotal" value='"${precio1}"'/></td>
+            <td><input type="hidden" name='imagen[]' id="imagen" value='"${imagen}"'/></td>
         `;
 
         // Agrega el HTML del carrito en el tbody

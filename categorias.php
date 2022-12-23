@@ -54,8 +54,8 @@
                             <div id="carrito">
 
                                 <table id="lista-carrito" class="u-full-width">
+
                                  
-                                 <form action="Pago.php" method="POST">
                                     <thead>
                                         <tr>
                                             <th>Imagen</th>
@@ -65,16 +65,20 @@
                                             <th></th>
                                         </tr>
                                     </thead>
-                                    <tbody></tbody>
+                                    <form class="form-control" action="Pago.php" method="POST">
+                                    <tbody>
+                                    </tbody>
+                                    
                                 </table>
-                                
+                                <button class="button u-full-width" type="submit">Pagar</button>
+                                </form>
                                 <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
                                 <script href="script.js">
                                  
                                  document.write('Total de la compra' + total1);
                                  </script>
-                                 <button class="button u-full-width" type="submit">Pagar</button>
-</form>
+                                 
+
                         </li>
                     </ul>
                 </div>

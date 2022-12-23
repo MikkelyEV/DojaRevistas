@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "db_conn.php";
+$id = implode(",", $_POST['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,7 @@ include "db_conn.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     
     <meta charset="UTF-8">
-    <title> Doja Revistas</title>
+    <title>Pago</title>
     
     <link rel="stylesheet" href="EstiloPago.css">
     <script src="https://kit.fontawesome.com/javascript.js" crossorigin="anonymous"></script>
@@ -29,7 +30,7 @@ include "db_conn.php";
         <div class="title">Inicio</div>
         <div class="bar"></div>
       </a>
-      <a href="index.php" class="link">
+      <a href="categorias.php" class="link">
         <div class="title">Categorias</div>
         <div class="bar"></div>
       </a>
@@ -40,9 +41,6 @@ include "db_conn.php";
     </div>
   </div>
     
-    <div class="textBox">
-        <h2 align="center"><span>Proceso de envío</span> </h2>
-    </div>
 
 <div class="container">
 
@@ -56,8 +54,8 @@ include "db_conn.php";
               <div class="col-lg-8">
                 <div class="p-5">
                   <div class="d-flex justify-content-between align-items-center mb-5">
-                    <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
-                    <h6 class="mb-0 text-muted">3 items</h6>
+                    <h1 class="fw-bold mb-0 text-black">Carrito de Compra</h1>
+                    <h6 class="mb-0 text-muted">3 articulos</h6>
                   </div>
                   <hr class="my-4">
 
