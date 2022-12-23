@@ -1,7 +1,11 @@
 <?php
 session_start();
 include "db_conn.php";
-$id = implode(",", $_POST['id']);
+$id=array(
+  7,
+  8,
+  9
+);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,136 +59,89 @@ $id = implode(",", $_POST['id']);
                 <div class="p-5">
                   <div class="d-flex justify-content-between align-items-center mb-5">
                     <h1 class="fw-bold mb-0 text-black">Carrito de Compra</h1>
-                    <h6 class="mb-0 text-muted">3 articulos</h6>
+                    <h6 class="mb-0 text-muted"><?php echo (count($id)) ?> articulos</h6>
                   </div>
-                  <hr class="my-4">
-
-                  <div class="row mb-4 d-flex justify-content-between align-items-center">
-                    <div class="col-md-2 col-lg-2 col-xl-2">
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp"
-                        class="img-fluid rounded-3" alt="Cotton T-shirt">
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-xl-3">
-                      <h6 class="text-muted">Shirt</h6>
-                      <h6 class="text-black mb-0">Cotton T-shirt</h6>
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                      <button class="btn btn-link px-2"
-                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                        <i class="fas fa-minus"></i>
-                      </button>
-
-                      <input id="form1" min="0" name="quantity" value="1" type="number"
-                        class="form-control form-control-sm" />
-
-                      <button class="btn btn-link px-2"
-                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                        <i class="fas fa-plus"></i>
-                      </button>
-                    </div>
-                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                      <h6 class="mb-0">€ 44.00</h6>
-                    </div>
-                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
-                    </div>
-                  </div>
-
-                  <hr class="my-4">
-
-                  <div class="row mb-4 d-flex justify-content-between align-items-center">
-                    <div class="col-md-2 col-lg-2 col-xl-2">
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img6.webp"
-                        class="img-fluid rounded-3" alt="Cotton T-shirt">
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-xl-3">
-                      <h6 class="text-muted">Shirt</h6>
-                      <h6 class="text-black mb-0">Cotton T-shirt</h6>
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                      <button class="btn btn-link px-2"
-                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                        <i class="fas fa-minus"></i>
-                      </button>
-
-                      <input id="form1" min="0" name="quantity" value="1" type="number"
-                        class="form-control form-control-sm" />
-
-                      <button class="btn btn-link px-2"
-                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                        <i class="fas fa-plus"></i>
-                      </button>
-                    </div>
-                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                      <h6 class="mb-0">€ 44.00</h6>
-                    </div>
-                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
-                    </div>
-                  </div>
-
-                  <hr class="my-4">
-
-                  <div class="row mb-4 d-flex justify-content-between align-items-center">
-                    <div class="col-md-2 col-lg-2 col-xl-2">
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img7.webp"
-                        class="img-fluid rounded-3" alt="Cotton T-shirt">
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-xl-3">
-                      <h6 class="text-muted">Shirt</h6>
-                      <h6 class="text-black mb-0">Cotton T-shirt</h6>
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                      <button class="btn btn-link px-2"
-                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                        <i class="fas fa-minus"></i>
-                      </button>
-
-                      <input id="form1" min="0" name="quantity" value="1" type="number"
-                        class="form-control form-control-sm" />
-
-                      <button class="btn btn-link px-2"
-                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                        <i class="fas fa-plus"></i>
-                      </button>
-                    </div>
-                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                      <h6 class="mb-0">€ 44.00</h6>
-                    </div>
-                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
-                    </div>
-                  </div>
+                  
+                  <?php
+                  $c=0;
+                  $st = 0;
+                  $sql = "SELECT id_producto,nombre_producto,descripcion,precio, imagen FROM PRODUCTO";
+                  $result = mysqli_query($conn, $sql);
+                  if (mysqli_num_rows($result) > 0) {
+                     // output data of each row
+                     
+                     while( $row = mysqli_fetch_assoc($result)) {
+                      $id_p = intval($row['id_producto']);
+                      if(!(empty($id[$c]))&&($id_p===$id[$c])){
+                        echo '<hr class="my-4">
+                        <div class="row mb-4 d-flex justify-content-between align-items-center">
+                        <div class="col-md-2 col-lg-2 col-xl-2">
+                          <img
+                            src="' . $row["imagen"] . '"
+                            class="img-fluid rounded-3">
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                          <h6 class="text-muted">' . $row["nombre_producto"] . '</h6>
+                          <h6 class="text-black mb-0">' . $row["descripcion"] . '</h6>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                          <button class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector("input[type=number]").stepDown()">
+                            <i class="fas fa-minus"></i>
+                          </button>
+    
+                          <input id="form1" min="0" name="quantity" value="1" type="number"
+                            class="form-control form-control-sm" />
+    
+                          <button class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector("input[type=number]").stepUp()">
+                            <i class="fas fa-plus"></i>
+                          </button>
+                        </div>
+                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                          <h6 class="mb-0">$' . $row["precio"] . '</h6>
+                        </div>
+                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                          <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                        </div>
+                      </div>';
+                        $st += $row["precio"];
+                      $c++;
+                      }
+                          
+                     }
+                    }
+                  ?>
+                  
 
                   <hr class="my-4">
 
                   <div class="pt-5">
                     <h6 class="mb-0"><a href="categorias.php" class="text-body"><i
-                          class="fas fa-long-arrow-alt-left me-2" ></i>Back to shop</a></h6>
+                          class="fas fa-long-arrow-alt-left me-2" ></i>Volver a la tienda</a></h6>
                   </div>
                 </div>
               </div>
               <div class="col-lg-4 bg-grey">
                 <div class="p-5">
-                  <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                  <h3 class="fw-bold mb-5 mt-2 pt-1">Resumen de Compra</h3>
                   <hr class="my-4">
 
                   <div class="d-flex justify-content-between mb-4">
-                    <h5 class="text-uppercase">items 3</h5>
-                    <h5>€ 132.00</h5>
+                    <h5 class="text-uppercase"><?php echo $c ?> items</h5>
+                    <h5>$<?php echo $st ?> </h5>
                   </div>
 
-                  <h5 class="text-uppercase mb-3">Shipping</h5>
+                  <h5 class="text-uppercase mb-3">Envío</h5>
 
                   <div class="mb-4 pb-2">
-                    <select class="select">
-                      <option value="1">Envío estandar</option>
-                      <option value="2">Envío premium</option>
+                  <select class='form-select' aria-label='Default select example' aria-placeholder="Selecciona tu envío" id="envio" onchange="func2()">;
+                  <option value="0">Selecciona tu envío</option>
+                      <option value="1">Envío estandar 7-15 días $130</option>
+                      <option value="2">Envío premium 2-3 días $250</option>
                     </select>
                   </div>
+                  
 
                   <span>Direccion :</span>
                 <select class='form-select' aria-label='Default select example' aria-placeholder="Selecciona tu direccion" id="direccion">;
@@ -210,8 +167,9 @@ $id = implode(",", $_POST['id']);
                   <hr class="my-4">
 
                   <div class="d-flex justify-content-between mb-5">
-                    <h5 class="text-uppercase">Total price</h5>
-                    <h5>€ 137.00</h5>
+                    <h5 class="text-uppercase">Total: </h5>
+                    <h5><div id="total">
+                    </h5>
                   </div>
 
                   <button type="button" class="btn btn-dark btn-block btn-lg"
@@ -253,5 +211,18 @@ $id = implode(",", $_POST['id']);
 		});
 	});
 </script> 
+<script>
+  function func2(){
+    if(document.getElementById('envio').value == "1") {
+      var temp= "<?php echo $st;?>";
+      var total= parseFloat(temp) + 130;
+      document.getElementById("total").innerHTML = "$"+total;
+    }else if(document.getElementById('envio').value == "2"){
+      var temp= "<?php echo $st; ?>";
+      var total= parseFloat(temp) + 250;
+      document.getElementById("total").innerHTML = "$"+total;
+    }
+  }
+  </script>
 </body>
 </html>
