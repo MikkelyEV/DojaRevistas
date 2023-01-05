@@ -27,7 +27,7 @@
             <div class="full-page-green"></div>
             <div class="ham-menu">
               <ul class="centre-text bold-text">
-                <li><a href="index.phpTML">Inicio</a></li>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="loginv2.html">Mi Cuenta</a></li>
                 <li>Soporte</li>
                 <li>Contactanos</li>
