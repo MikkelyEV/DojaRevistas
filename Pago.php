@@ -53,6 +53,7 @@
                               <div class="p-5">
                                  <div class="d-flex justify-content-between align-items-center mb-5">
                                     <h1 class="fw-bold mb-0 text-black">Carrito de Compra</h1>
+                                    <form id="post" action="ConfInfo.php" method="POST">
                                     <h6 class="mb-0 text-muted"><?php echo (count($id)) ?> articulos</h6>
                                  </div>
                                  <?php
@@ -113,7 +114,7 @@
                                        <img src="card_img.png" alt="" class= 'form-control form-control-sm' width="30" height="30"  style="object-fit:scale-down;">
                                     </div>
                                     
-                                    <form id="post" action="ConfInfo.php" method="POST">
+                                   
                                        <div class="inputBox">
                                           <span>Propietario de la tarjeta :</span>
                                           <input type="text" placeholder="Carlos Rubio" class= 'form-control form-control-sm' name='nombre'>

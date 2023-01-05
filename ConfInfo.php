@@ -20,7 +20,11 @@ var_dump($id_d);
 var_dump($id_c);
 var_dump($fecha_e);
 var_dump($total);
+
 $sql2 = "INSERT INTO PEDIDOS(id_cliente,id_direccion,total,dir_entrega,fecha_entr) VALUES('$id_c','$id_d','$total','$dir','$fecha_e')";
+$result2 = mysqli_query($conn, $sql2);
+$id_p = mysqli_insert_id($conn);
+$sql2 = "INSERT INTO ORDEN(id_pedido,id_producto,precio_un,cantidad,total) VALUES('$id_c','$id_d','$total','$dir','$fecha_e')";
            $result2 = mysqli_query($conn, $sql2);
 
 ?>

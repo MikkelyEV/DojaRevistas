@@ -1,3 +1,9 @@
+<?php
+session_start();
+include "db_conn.php";
+
+
+?>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -33,7 +39,10 @@
     
     <div id="invoice-top">      
       <div class="title">
-        <h1>Factura #<span class="invoiceVal invoice_num">numfact</span></h1>
+        <h1>Factura<span class="invoiceVal invoice_num"><?php
+              echo "<span class='d-block new mb-1'>$nombref</span>";
+              ?>
+              </span></h1>
         <p>Fecha: <span id="invoice_date">fecha</span>
         </p>
       </div><!--End Title-->
