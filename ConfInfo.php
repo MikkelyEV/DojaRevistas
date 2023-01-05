@@ -1,3 +1,30 @@
+<?php
+session_start();
+include "db_conn.php";
+$dir = isset($_POST['direccion']) ? $_POST['direccion'] : false;
+  $nombre = $_SESSION["nombre"];
+$nombref = $_POST["nombre"];
+	$correo_electronico = $_SESSION["email"];
+  $rfc = $_SESSION["rfc"];
+  $env = $_POST['envio'];
+$id_c = $_SESSION["id"];
+$total = ltrim($_POST["total"], '$');
+$Date = date("Y-m-d");
+if ($env=1){
+  $fecha_e=date('Y-m-d', strtotime($Date. ' + 12 days'));
+}else{
+  $fecha_e=date('Y-m-d', strtotime($Date. ' + 2 days'));
+}
+$id_d = $_SESSION['id_direccion'];
+var_dump($id_d);
+var_dump($id_c);
+var_dump($fecha_e);
+var_dump($total);
+$sql2 = "INSERT INTO PEDIDOS(id_cliente,id_direccion,total,dir_entrega,fecha_entr) VALUES('$id_c','$id_d','$total','$dir','$fecha_e')";
+           $result2 = mysqli_query($conn, $sql2);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <meta charset="UTF-8">
@@ -43,7 +70,9 @@
             <div class="card p-4 mt-3">
                <div class="first d-flex justify-content-between align-items-center mb-3">
                  <div class="info">
-                     <span class="d-block name">Gracias por tu compra, "Nombre"</span>
+                 <?php
+                     echo "<span class='d-block name'>Gracias por tu compra de $total</span>";
+                     ?>
                      <span class="order">Pedido - "pedido"</span>
                       
                  </div>
@@ -57,9 +86,13 @@
                    </div>
                <hr>
                <div class="text">
-             <span class="d-block new mb-1" >"Nombre"</span>
+               <?php
+              echo "<span class='d-block new mb-1'>$nombref</span>";
+              ?>
               </div>
-             <span class="d-block address mb-3">"Dirección"</span>
+              <?php
+              echo "<span class='d-block address mb-3'>$dir</span>";
+             ?>
                <div class="  money d-flex flex-row mt-2 align-items-center">
                  <img src="https://i.imgur.com/ppwgjMU.png" width="20" />
                               
