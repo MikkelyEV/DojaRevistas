@@ -24,6 +24,57 @@ $sql2 = "INSERT INTO PEDIDOS(id_cliente,id_direccion,total,dir_entrega,fecha_ent
            $result2 = mysqli_query($conn, $sql2);
 
 ?>
+ <?php
+                    
+
+                  
+
+                   
+                        //API URL
+                        $url = 'https://transportes-ith-api-production.up.railway.app/api/solicitudes';
+
+                        //create a new cURL resource
+                        $ch = curl_init($url);
+                    
+                        //setup request to send json via POST
+                        $data = array(
+                            
+                            "numeroVenta" => $idProveedor,
+                            "productos"=>'Revistas',
+                            "nombreDestinatario"=>$importe,
+                            "direccionDestino"=>$cantidadUnidad,
+                            "fechaEntrega"=>$fecha,
+                            "idCliente"=>$descripcion
+                            
+                        );
+                        $info = json_encode($data);
+                    var_dump($info);
+                    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST"); 
+                        //attach encoded JSON string to the POST fields
+                        curl_setopt($ch, CURLOPT_POSTFIELDS, $info);
+                        curl_setopt($ch, CURLOPT_POST, true);
+                        //set the content type to application/json
+                        curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+                            'Content-Type: application/json',                                                                                
+                            'Content-Length: ' . strlen($info))                                                                       
+                        );                                                                                                                   
+                        
+                        //return response instead of outputting
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                        //execute the POST request
+                       $result = curl_exec($ch);
+                        if($result === FALSE){
+                            die(curl_error($ch));
+                        }
+                    
+                        $responseData = json_decode($result, TRUE);
+                    var_dump($responseData);
+                        //close cURL resource
+                        curl_close($ch);
+
+
+                    ?>  
 
 <!DOCTYPE html>
 <html lang="en">
