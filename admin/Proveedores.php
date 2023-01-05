@@ -95,7 +95,7 @@ include "db_conn.php";
                     $result = mysqli_query($conn, $query);
                     if (mysqli_num_rows($result) > 0) {
                         while ($rows=mysqli_fetch_assoc($result)){
-                            echo "<option value=".$rows['nombre_producto']."'>".$rows['nombre_producto']."</option>";
+                            echo '<option value="'. $rows['nombre_producto'].'" >'.$rows['nombre_producto']."</option>";
                         }
                     } else {
                     echo "<option value=0Resultados></option>";
@@ -104,7 +104,7 @@ include "db_conn.php";
                     
                     
                     ?>
-
+                    
                     </div>
                     <div class="form-group col-sm-3 flex-column d-flex" style="margin-left:1%;margin-right:auto;display:block;margin-top:1%;margin-bottom:0%"> <label class="form-control-label px-3">Cantidad<span class="text-danger"> *</span></label> <input class="form-control input-lg" type="number" id="cantidadUnidad" name="cantidadUnidad" placeholder="Ingrese la cantidad" onblur="validate(5)"> </div>
                     </div>
@@ -122,38 +122,62 @@ include "db_conn.php";
                     </form> 
                     </div>
                     <?php
+                    $idProveedor=$_GET['idProveedor'];
+                    $nombre = $_GET['producto'];
+                    $importe=$_GET['importe'];
+                    $cantidadUnidad=$_GET['cantidadUnidad'];
+                    $fecha=$_GET['fecha'];
+                    $descripcion=$_GET['descripcion'];
+
+                    /*var_dump($idProveedor);
+                    var_dump($nombre);
+                    var_dump($importe);
+                    var_dump($cantidadUnidad);
+                    var_dump($fecha);
+                    var_dump($descripcion);*/
+                  
+
                    
                         //API URL
-                        $url = 'https://proveedores-api-production.up.railway.app/api/producto';
+                        $url = 'https://proveedores-api-production.up.railway.app/api/productos';
 
                         //create a new cURL resource
                         $ch = curl_init($url);
-
+                    
                         //setup request to send json via POST
                         $data = array(
-                            'idProducto' => '1',
-                            'nombre' => 'Billboard invierno',
-                            'importe'  => '10',
-                            'cantidadUnidad'  => '100',
-                            'total'  => '1000',
-                            'fecha'  => '2022-12-14T00:00:00.000Z',
-                            'idProveedor'  => '32',
-                            'descripcion'  => 'Revista billboard invierno 2022'
+                            
+                            "idProveedor" => $idProveedor,
+                            "nombre"=>$nombre,
+                            "importe"=>$importe,
+                            "cantidadUnidad"=>$cantidadUnidad,
+                            "fecha"=>$fecha,
+                            "descripcion"=>$descripcion
+                            
                         );
-                        $info = json_encode(array("32" => $data));
-                        
+                        $info = json_encode($data);
+                    var_dump($info);
+                    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST"); 
                         //attach encoded JSON string to the POST fields
                         curl_setopt($ch, CURLOPT_POSTFIELDS, $info);
-
+                        curl_setopt($ch, CURLOPT_POST, true);
                         //set the content type to application/json
-                        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-
+                        curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+                            'Content-Type: application/json',                                                                                
+                            'Content-Length: ' . strlen($info))                                                                       
+                        );                                                                                                                   
+                        
                         //return response instead of outputting
                         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
                         //execute the POST request
-                        $result = curl_exec($ch);
-
+                       $result = curl_exec($ch);
+                        if($result === FALSE){
+                            die(curl_error($ch));
+                        }
+                    
+                        $responseData = json_decode($result, TRUE);
+                    var_dump($responseData);
                         //close cURL resource
                         curl_close($ch);
 
