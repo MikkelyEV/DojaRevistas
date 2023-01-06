@@ -79,10 +79,10 @@ print($redirectedUrl);
                         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
                         //execute the POST request
-                       //$result = curl_exec($ch);
+                       $result = curl_exec($ch);
                         
                     
-                        //$responseData = json_decode($result, TRUE);
+                        $responseData = json_decode($result, TRUE);
                     
                         //close cURL resource
                         curl_close($ch);
