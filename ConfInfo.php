@@ -16,24 +16,34 @@ if ($env=1){
   $fecha_e=date('Y-m-d', strtotime($Date. ' + 2 days'));
 }
 $id_d = $_SESSION['id_direccion'];
-var_dump($id_d);
-var_dump($id_c);
-var_dump($fecha_e);
-var_dump($total);
+
+$tarjeta_org=$_POST['notarjeta_org'];
+$cuenta_destino='5478469725844569';
+$token = $_POST['cvv'];
+$fecha_v=str_replace('/','%2F',$_POST['fecha_v']);
 
 $sql2 = "INSERT INTO PEDIDOS(id_cliente,id_direccion,total,dir_entrega,fecha_entr) VALUES('$id_c','$id_d','$total','$dir','$fecha_e')";
 $result2 = mysqli_query($conn, $sql2);
 $id_p = mysqli_insert_id($conn);
-$sql2 = "INSERT INTO ORDEN(id_pedido,id_producto,precio_un,cantidad,total) VALUES('$id_c','$id_d','$total','$dir','$fecha_e')";
-           $result2 = mysqli_query($conn, $sql2);
+$data = array($tarjeta_org,$fecha_v,$token,$cuenta_destino,$total);
+
+$url = 'http://www.itbank.somee.com/api/Usuarios/Transferencia/';
+$myvars = array($tarjeta_org . ',' . $fecha_v . ',' . $token . ',' . $cuenta_destino . ',' . $total);
+
+$ch = curl_init( $url );
+curl_setopt( $ch, CURLOPT_POST, count($myvars));
+curl_setopt( $ch, CURLOPT_POSTFIELDS, $myvars);
+curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt( $ch, CURLOPT_HEADER, 0);
+curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+$response = curl_exec( $ch );
+$redirectedUrl = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+print($redirectedUrl);
+
 
 ?>
  <?php
-                    
-
-                  
-
-                   
+        
                         //API URL
                         $url = 'https://transportes-ith-api-production.up.railway.app/api/solicitudes';
 
@@ -43,16 +53,18 @@ $sql2 = "INSERT INTO ORDEN(id_pedido,id_producto,precio_un,cantidad,total) VALUE
                         //setup request to send json via POST
                         $data = array(
                             
-                            "numeroVenta" => $idProveedor,
-                            "productos"=>'Revistas',
-                            "nombreDestinatario"=>$importe,
-                            "direccionDestino"=>$cantidadUnidad,
-                            "fechaEntrega"=>$fecha,
-                            "idCliente"=>$descripcion
+                            "numeroVenta" => $id_p ,
+                            "productos"=>"Revistas",
+                            "nombreDestinatario"=>$nombre,
+                            "direccionDestino"=>$dir,
+                            "fechaEntrega"=>"20221227",
+                            "idCliente"=>"5"
+
+                            
                             
                         );
                         $info = json_encode($data);
-                    var_dump($info);
+                    
                     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST"); 
                         //attach encoded JSON string to the POST fields
                         curl_setopt($ch, CURLOPT_POSTFIELDS, $info);
@@ -67,13 +79,11 @@ $sql2 = "INSERT INTO ORDEN(id_pedido,id_producto,precio_un,cantidad,total) VALUE
                         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
                         //execute the POST request
-                       $result = curl_exec($ch);
-                        if($result === FALSE){
-                            die(curl_error($ch));
-                        }
+                       //$result = curl_exec($ch);
+                        
                     
-                        $responseData = json_decode($result, TRUE);
-                    var_dump($responseData);
+                        //$responseData = json_decode($result, TRUE);
+                    
                         //close cURL resource
                         curl_close($ch);
 
@@ -168,6 +178,6 @@ $sql2 = "INSERT INTO ORDEN(id_pedido,id_producto,precio_un,cantidad,total) VALUE
                     </div>
              </div>
          </div>
-
+        
     </body>
 </html>
